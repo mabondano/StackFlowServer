@@ -134,8 +134,8 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for details (coming soon).
 
 ## License
 
-This project is released under the MIT License.  
-You are free to use, modify, and distribute it for personal or commercial projects.
+This project is licensed under the Apache License, Version 2.0.  
+See the [LICENSE](LICENSE) file for details.
 
 ---
 
