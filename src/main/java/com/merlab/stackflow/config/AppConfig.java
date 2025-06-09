@@ -1,0 +1,50 @@
+/*
+ * Copyright 2025 Merly Abondano
+ *
+ * Created:   2025-06-09
+ * Author:    Merly Abondano
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+
+package com.merlab.stackflow.config;
+
+
+/**
+ * Application-wide configuration parameters.
+ * Constants for configuration keys.
+ * Author: Merly Abondano
+ * Created: 2025-06-09
+ */
+public class AppConfig {
+    
+    public static final String DB_URL = "db.url";
+    public static final String DB_USER = "db.user";
+    public static final String DB_PASSWORD = "db.password";
+    // ...otros keys
+
+    private String environment;
+    private String version;
+    private boolean debugMode;
+
+    // Getters and setters...
+    public String getEnvironment() { return environment; }
+    public void setEnvironment(String env) { this.environment = env; }
+
+    public String getVersion() { return version; }
+    public void setVersion(String v) { this.version = v; }
+
+    public boolean isDebugMode() { return debugMode; }
+    public void setDebugMode(boolean debug) { this.debugMode = debug; }
+}

@@ -17,17 +17,18 @@
  * limitations under the License.
  */
 
-package com.merlab.stackflow.persistence.dao;
 
-import jakarta.ejb.Local;
+package com.merlab.stackflow.datamanager;
+
+import jakarta.ejb.Stateless;
 
 /**
  *
  * @author merly
  */
-@Local
-public interface UserDAOLocal {
-    void saveUser(Object user);
-    Object findUserById(Long id);
-    
+@Stateless
+public class DataManagerServiceBean implements DataManagerServiceLocal {
+    @Override public void importDataset(String source) {}
+    @Override public void exportDataset(String target) {}
 }
+

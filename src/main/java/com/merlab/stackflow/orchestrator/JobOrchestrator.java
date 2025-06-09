@@ -17,17 +17,14 @@
  * limitations under the License.
  */
 
-package com.merlab.stackflow.persistence.dao;
 
-import jakarta.ejb.Local;
+package com.merlab.stackflow.orchestrator;
 
 /**
  *
  * @author merly
  */
-@Local
-public interface UserDAOLocal {
-    void saveUser(Object user);
-    Object findUserById(Long id);
-    
+public interface JobOrchestrator {
+    void runBatchJob(String jobName);
+    void runStreamJob(String jobName);
 }

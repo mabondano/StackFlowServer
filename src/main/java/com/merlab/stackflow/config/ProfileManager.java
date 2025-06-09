@@ -17,17 +17,37 @@
  * limitations under the License.
  */
 
-package com.merlab.stackflow.persistence.dao;
 
-import jakarta.ejb.Local;
+package com.merlab.stackflow.config;
 
 /**
  *
  * @author merly
  */
-@Local
-public interface UserDAOLocal {
-    void saveUser(Object user);
-    Object findUserById(Long id);
-    
+/**
+ * Manages application profiles (dev, prod, test, etc.).
+ */
+public class ProfileManager {
+
+    private String activeProfile = "dev";
+
+    public String getActiveProfile() {
+        return activeProfile;
+    }
+
+    public void setActiveProfile(String profile) {
+        this.activeProfile = profile;
+    }
+
+    public boolean isProd() {
+        return "prod".equalsIgnoreCase(activeProfile);
+    }
+
+    public boolean isDev() {
+        return "dev".equalsIgnoreCase(activeProfile);
+    }
+
+    public boolean isTest() {
+        return "test".equalsIgnoreCase(activeProfile);
+    }
 }

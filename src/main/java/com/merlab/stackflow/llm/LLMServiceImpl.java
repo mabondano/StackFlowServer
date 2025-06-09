@@ -17,17 +17,14 @@
  * limitations under the License.
  */
 
-package com.merlab.stackflow.persistence.dao;
 
-import jakarta.ejb.Local;
+package com.merlab.stackflow.llm;
 
 /**
  *
  * @author merly
  */
-@Local
-public interface UserDAOLocal {
-    void saveUser(Object user);
-    Object findUserById(Long id);
-    
+public class LLMServiceImpl implements LLMService {
+    @Override public void loadModel(String modelPath) {}
+    @Override public String infer(String prompt) { return ""; }
 }

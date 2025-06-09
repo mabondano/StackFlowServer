@@ -17,7 +17,8 @@
  * limitations under the License.
  */
 
-package com.merlab.stackflow.persistence.dao;
+
+package com.merlab.stackflow.monitoring;
 
 import jakarta.ejb.Local;
 
@@ -26,8 +27,7 @@ import jakarta.ejb.Local;
  * @author merly
  */
 @Local
-public interface UserDAOLocal {
-    void saveUser(Object user);
-    Object findUserById(Long id);
-    
+public interface MonitoringServiceLocal {
+    void logEvent(String message);
+    void reportMetric(String metric, double value);
 }

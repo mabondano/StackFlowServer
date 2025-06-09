@@ -17,17 +17,14 @@
  * limitations under the License.
  */
 
-package com.merlab.stackflow.persistence.dao;
 
-import jakarta.ejb.Local;
+package com.merlab.stackflow.memory;
 
 /**
  *
  * @author merly
  */
-@Local
-public interface UserDAOLocal {
-    void saveUser(Object user);
-    Object findUserById(Long id);
-    
+public class SimpleMemoryManager implements MemoryManager {
+    @Override public void cacheResult(String key, Object value) {}
+    @Override public Object retrieveResult(String key) { return null; }
 }

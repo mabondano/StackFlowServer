@@ -17,17 +17,14 @@
  * limitations under the License.
  */
 
-package com.merlab.stackflow.persistence.dao;
 
-import jakarta.ejb.Local;
+package com.merlab.stackflow.resources;
 
 /**
  *
  * @author merly
  */
-@Local
-public interface UserDAOLocal {
-    void saveUser(Object user);
-    Object findUserById(Long id);
-    
+public class ResourceManager {
+    public void loadResource(String name) {}
+    public void saveResource(String name, Object data) {}
 }

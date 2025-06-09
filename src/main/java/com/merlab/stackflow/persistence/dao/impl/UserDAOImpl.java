@@ -28,5 +28,6 @@ import com.merlab.stackflow.persistence.dao.UserDAOLocal;
  */
 @Stateless
 public class UserDAOImpl implements UserDAOLocal{
-    
+    @Override public void saveUser(Object user) {}
+    @Override public Object findUserById(Long id) { return null; }    
 }
