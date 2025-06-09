@@ -20,9 +20,12 @@
 
 package com.merlab.stackflow.config;
 
+import com.merlab.stackflow.test.MyService;
+import com.merlab.stackflow.test.MyServiceBean;
 import jakarta.annotation.PostConstruct;
 import jakarta.ejb.Singleton;
 import jakarta.ejb.Startup;
+import jakarta.inject.Inject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -34,9 +37,14 @@ import org.slf4j.LoggerFactory;
 @Startup
 public class StartupBean {
     private static final Logger logger = LoggerFactory.getLogger(StartupBean.class);
+    
+    @Inject
+    private MyServiceBean myService;
 
     @PostConstruct
     public void init() {
         logger.info("=== StackFlowServer EJB started! Hello World from StartupBean ===");
+        MyService.doSomething();
+        myService.doSomething();
     }
 }

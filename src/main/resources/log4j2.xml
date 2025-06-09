@@ -13,14 +13,14 @@
     </Appenders>
     <Loggers>
         <!-- Root logger -->
-        <Root level="info">
+        <Root level="trace">
             <AppenderRef ref="Console"/>
             <!-- <AppenderRef ref="FileLogger"/> -->
         </Root>
-        <!-- (Opcional) Logger específico para tu paquete
+        <!-- (Opcional) Logger específico para tu paquete  -->
         <Logger name="com.merlab.stackflow" level="debug" additivity="false">
             <AppenderRef ref="Console"/>
         </Logger>
-        -->
+       
     </Loggers>
 </Configuration>

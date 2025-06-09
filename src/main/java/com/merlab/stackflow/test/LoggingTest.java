@@ -19,21 +19,24 @@
 
 package com.merlab.stackflow.test;
 
-/**
- * Test for Logger
- * @author merly
- */
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class MyService {
-    private static final Logger logger = LoggerFactory.getLogger(MyService.class);
+public class LoggingTest {
 
-    public static void doSomething() {
-        logger.info("Doing something in MyService!");
-        logger.debug("Debug info for developers.");
-        logger.warn("Warning! Something could go wrong.");
-        logger.error("Oops, an error!");
+    private static final Logger logger = LoggerFactory.getLogger(LoggingTest.class);
+
+    public static void main(String[] args) {
+        logger.info("INFO: This is an info message.");
+        logger.warn("WARN: This is a warning message.");
+        logger.error("ERROR: This is an error message.");
+        logger.debug("DEBUG: This is a debug message.");
+        logger.trace("TRACE: This is a trace message.");
+
+        try {
+            throw new Exception("This is a test exception.");
+        } catch (Exception e) {
+            logger.error("Exception caught!", e);
+        }
     }
 }
-

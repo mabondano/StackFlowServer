@@ -23,17 +23,18 @@ package com.merlab.stackflow.test;
  * Test for Logger
  * @author merly
  */
+import jakarta.enterprise.context.ApplicationScoped;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class MyService {
-    private static final Logger logger = LoggerFactory.getLogger(MyService.class);
+@ApplicationScoped
+public class MyServiceBean {
+    private static final Logger logger = LoggerFactory.getLogger(MyServiceBean.class);
 
-    public static void doSomething() {
+    public void doSomething() {
         logger.info("Doing something in MyService!");
         logger.debug("Debug info for developers.");
         logger.warn("Warning! Something could go wrong.");
         logger.error("Oops, an error!");
     }
 }
-
