@@ -27,7 +27,7 @@ import jakarta.ejb.Local;
  * @author merly
  */
 @Local
-public interface OrchestratorServiceLocal {
+public interface OrchestratorServiceLocal2 {
     void scheduleJob();
     void triggerEvent(String eventName);
 }

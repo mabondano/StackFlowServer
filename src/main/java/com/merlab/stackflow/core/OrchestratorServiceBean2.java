@@ -26,7 +26,7 @@ import jakarta.ejb.Stateless;
  * @author merly
  */
 @Stateless
-public class OrchestratorServiceBean implements OrchestratorServiceLocal {
+public class OrchestratorServiceBean2 implements OrchestratorServiceLocal2 {
     @Override
     public void scheduleJob() {}
     @Override
