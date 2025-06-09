@@ -72,7 +72,35 @@
             <artifactId>log4j-core</artifactId>
             <version>2.23.1</version>
         </dependency>
+
+        <!-- JavaFX Modules -->
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-controls</artifactId>
+            <version>21.0.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-graphics</artifactId>
+            <version>21.0.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-base</artifactId>
+            <version>21.0.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-web</artifactId>
+            <version>21.0.2</version>
+        </dependency>
         
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-controls</artifactId>
+            <version>21.0.2</version>
+            <classifier>win</classifier>
+        </dependency>
     </dependencies>
 
     <build>
@@ -94,6 +122,16 @@
                     <failOnMissingWebXml>false</failOnMissingWebXml>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.openjfx</groupId>
+                <artifactId>javafx-maven-plugin</artifactId>
+                <version>0.0.8</version>
+                <configuration>
+                  <mainClass>com.merlab.stackflow.test.PlotlyInJavaFX</mainClass>
+                  <!--mainClass>com.merlab.stackflow.test.HelloWorldJavaFX</mainClass-->
+                </configuration>
+            </plugin>
+
         </plugins>
     </build>
 

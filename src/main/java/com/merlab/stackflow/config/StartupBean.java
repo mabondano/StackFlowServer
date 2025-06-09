@@ -20,8 +20,8 @@
 
 package com.merlab.stackflow.config;
 
-import com.merlab.stackflow.test.MyService;
-import com.merlab.stackflow.test.MyServiceBean;
+//import com.merlab.stackflow.test.MyService;
+//import com.merlab.stackflow.test.MyServiceBean;
 import jakarta.annotation.PostConstruct;
 import jakarta.ejb.Singleton;
 import jakarta.ejb.Startup;
@@ -38,13 +38,16 @@ import org.slf4j.LoggerFactory;
 public class StartupBean {
     private static final Logger logger = LoggerFactory.getLogger(StartupBean.class);
     
-    @Inject
-    private MyServiceBean myService;
+    //@Inject
+    //private MyServiceBean myService;
 
     @PostConstruct
     public void init() {
         logger.info("=== StackFlowServer EJB started! Hello World from StartupBean ===");
-        MyService.doSomething();
-        myService.doSomething();
+        //MyService.doSomething();
+        //myService.doSomething();
+        
+        // Lanzar JavaFX en un nuevo thread - Experimento --> NO para produccion
+        //new Thread(() -> HelloWorldJavaFX.launch(HelloWorldJavaFX.class)).start();  
     }
 }
