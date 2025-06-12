@@ -1,0 +1,152 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package com.merlab.stackflow.persistence.entity;
+
+import jakarta.persistence.Basic;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.Lob;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.NamedQueries;
+import jakarta.persistence.NamedQuery;
+import jakarta.persistence.Table;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+import java.io.Serializable;
+import java.util.Date;
+
+/**
+ *
+ * @author merly
+ */
+@Entity
+@Table(name = "user_settings")
+@jakarta.xml.bind.annotation.XmlRootElement
+@NamedQueries({
+    @NamedQuery(name = "UserSettings.findAll", query = "SELECT u FROM UserSettings u"),
+    @NamedQuery(name = "UserSettings.findById", query = "SELECT u FROM UserSettings u WHERE u.id = :id"),
+    @NamedQuery(name = "UserSettings.findByKey", query = "SELECT u FROM UserSettings u WHERE u.key = :key"),
+    @NamedQuery(name = "UserSettings.findByType", query = "SELECT u FROM UserSettings u WHERE u.type = :type"),
+    @NamedQuery(name = "UserSettings.findByUpdatedAt", query = "SELECT u FROM UserSettings u WHERE u.updatedAt = :updatedAt")})
+public class UserSettings implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "id")
+    private Long id;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 100)
+    @Column(name = "key")
+    private String key;
+    @Lob
+    @Size(max = 65535)
+    @Column(name = "value")
+    private String value;
+    @Size(max = 50)
+    @Column(name = "type")
+    private String type;
+    @Column(name = "updated_at")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date updatedAt;
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    private Users userId;
+
+    public UserSettings() {
+    }
+
+    public UserSettings(Long id) {
+        this.id = id;
+    }
+
+    public UserSettings(Long id, String key) {
+        this.id = id;
+        this.key = key;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
+    }
+
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public Date getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    public Users getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Users userId) {
+        this.userId = userId;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 0;
+        hash += (id != null ? id.hashCode() : 0);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        // TODO: Warning - this method won't work in the case the id fields are not set
+        if (!(object instanceof UserSettings)) {
+            return false;
+        }
+        UserSettings other = (UserSettings) object;
+        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "com.merlab.stackflow.persistence.entity.UserSettings[ id=" + id + " ]";
+    }
+    
+}
