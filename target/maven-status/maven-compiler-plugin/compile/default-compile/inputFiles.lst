@@ -16,6 +16,7 @@ C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\orchestrator\JobOrchestrator.java
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\mlcore\MLCoreService.java
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\persistence\dao\ScenarioDAOLocal.java
+C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\api\UserResource.java
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\core\OrchestratorServiceLocal2.java
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\service\impl\GeneralServiceImpl.java
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\service\impl\PluginManagerServiceBean.java
@@ -62,6 +63,7 @@ C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\persistence\entity\PipelineVersion.java
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\service\ScenarioManagerServiceLocal.java
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\config\ConfigException.java
+C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\api\dto\UserDTO.java
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\persistence\entity\History.java
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\statistics\StatisticsServiceImpl.java
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\config\ConfigManagerSimple.java

@@ -18,6 +18,7 @@ com\merlab\stackflow\service\PipelineExecutorBean.class
 com\merlab\stackflow\persistence\entity\TestEntity.class
 com\merlab\stackflow\resources\ResourceManager.class
 com\merlab\stackflow\signals\SignalProcessor.class
+com\merlab\stackflow\api\dto\UserDTO.class
 com\merlab\stackflow\service\impl\ArchivingServiceBean.class
 com\merlab\stackflow\service\impl\OrchestratorServiceBean.class
 com\merlab\stackflow\core\OrchestratorServiceBean2.class
@@ -65,6 +66,7 @@ com\merlab\stackflow\service\impl\BatchProcessorServiceBean.class
 com\merlab\stackflow\service\PipelineVersionServiceLocal.class
 com\merlab\stackflow\config\ConfigKeys.class
 com\merlab\stackflow\test\ServiceTestMain.class
+com\merlab\stackflow\api\UserResource.class
 com\merlab\stackflow\datamanager\DataManagerServiceBean.class
 com\merlab\stackflow\persistence\dao\ScenarioDAOLocal.class
 com\merlab\stackflow\service\ScenarioManagerServiceLocal.class
