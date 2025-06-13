@@ -29,9 +29,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 @Stateless
-public class TestDao implements TestDaoLocal{
+public class TestDaoBean implements TestDaoLocal{
     
-    private static final Logger log = LoggerFactory.getLogger(TestDao.class);
+    private static final Logger log = LoggerFactory.getLogger(TestDaoBean.class);
 
     @PersistenceContext(unitName = "StackflowPU")
     private EntityManager em;
