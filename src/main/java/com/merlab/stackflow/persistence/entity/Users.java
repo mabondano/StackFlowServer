@@ -44,61 +44,81 @@ import java.util.List;
 public class Users implements Serializable {
 
     private static final long serialVersionUID = 1L;
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id")
     private Long id;
+    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 100)
     @Column(name = "username")
     private String username;
+    
     // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")//if the field contains email address consider using this annotation to enforce field validation
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 150)
     @Column(name = "email")
     private String email;
+    
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 255)
     @Column(name = "password_hash")
     private String passwordHash;
+    
     @Column(name = "created_at")
     @Temporal(TemporalType.TIMESTAMP)
     private Date createdAt;
+    
     @ManyToMany(mappedBy = "usersList", fetch = FetchType.LAZY)
     private List<Projects> projectsList;
+    
     @JoinTable(name = "user_roles", joinColumns = {
         @JoinColumn(name = "user_id", referencedColumnName = "id")}, inverseJoinColumns = {
         @JoinColumn(name = "role_id", referencedColumnName = "id")})
     @ManyToMany(fetch = FetchType.LAZY)
     private List<Roles> rolesList;
+    
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "ownerId", fetch = FetchType.LAZY)
     private List<Projects> projectsList1;
+    
     @OneToMany(mappedBy = "userId", fetch = FetchType.LAZY)
     private List<ScenarioRuns> scenarioRunsList;
+    
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "creatorId", fetch = FetchType.LAZY)
     private List<Scenarios> scenariosList;
+    
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "userId", fetch = FetchType.LAZY)
     private List<UserSettings> userSettingsList;
+    
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "userId", fetch = FetchType.LAZY)
     private List<Pipelines> pipelinesList;
+    
     @OneToMany(mappedBy = "userId", fetch = FetchType.LAZY)
     private List<DbConnections> dbConnectionsList;
+    
     @OneToMany(mappedBy = "userId", fetch = FetchType.LAZY)
     private List<Schedules> schedulesList;
+    
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "userId", fetch = FetchType.LAZY)
     private List<Models> modelsList;
+    
     @OneToMany(mappedBy = "userId", fetch = FetchType.LAZY)
     private List<JobQueue> jobQueueList;
+    
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "userId", fetch = FetchType.LAZY)
     private List<History> historyList;
+    
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "userId", fetch = FetchType.LAZY)
     private List<SignalGroups> signalGroupsList;
+    
     @OneToMany(mappedBy = "userId", fetch = FetchType.LAZY)
     private List<Signals> signalsList;
+    
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "userId", fetch = FetchType.LAZY)
     private List<MemorySlots> memorySlotsList;
 
@@ -125,7 +145,7 @@ public class Users implements Serializable {
     }
 
     public String getUsername() {
-        return username;
+        return this.username;
     }
 
     public void setUsername(String username) {
