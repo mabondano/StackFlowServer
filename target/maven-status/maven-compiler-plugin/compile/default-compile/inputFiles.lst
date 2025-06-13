@@ -38,6 +38,7 @@ C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\core\OrchestratorServiceBean2.java
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\config\PropertiesConfigLoader.java
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\config\AppConfig.java
+C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\service\InMemoryUserDao.java
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\resources\ResourceManager.java
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\merlabcore\RPNStack.java
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\monitoring\MonitoringServiceBean.java
@@ -92,6 +93,7 @@ C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\datamanager\DataManagerServiceBean.java
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\service\GeneralService.java
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\service\PipelineVersionServiceLocal.java
+C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\test\ServiceTestMain.java
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\service\ScenarioManagerLocal.java
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\memory\MemoryManager.java
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\persistence\entity\SignalData.java

@@ -16,8 +16,43 @@
         <failOnMissingWebXml>false</failOnMissingWebXml>
         <maven.compiler.release>17</maven.compiler.release>
     </properties>
+    
+    <dependencyManagement>
+        <dependencies>
+            <!-- Importa el BOM de WildFly Arquillian, versión 2.1.1.Final -->
+            <!--dependency>
+              <groupId>org.wildfly.arquillian</groupId>
+              <artifactId>wildfly-arquillian-bom</artifactId>
+              <version>2.1.1.Final</version>
+              <type>pom</type>
+              <scope>import</scope>
+            </dependency-->
+            <!-- Arquillian BOM para alinear versiones -->
+            <dependency>
+                <groupId>org.jboss.arquillian</groupId>
+                <artifactId>arquillian-bom</artifactId>
+                <version>1.8.0.Final</version>
+                <scope>import</scope>
+                <type>pom</type>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <dependencies>
+
+          <!-- OpenEJB embebido para tests -->
+        <dependency>
+          <groupId>org.apache.openejb</groupId>
+          <artifactId>openejb-core</artifactId>
+          <version>4.7.5</version>
+          <scope>test</scope>
+        </dependency>
+        <dependency>
+          <groupId>org.apache.openejb</groupId>
+          <artifactId>openejb-loader</artifactId>
+          <version>4.7.5</version>
+          <scope>test</scope>
+        </dependency>
         <!-- Jakarta EE API -->
         <dependency>
             <groupId>jakarta.platform</groupId>
@@ -33,11 +68,23 @@
             <version>2.13.2</version>
         </dependency>
 
-        <!-- JUnit for testing -->
+        <!-- JUnit for testing -->       
+        <dependency>
+            <groupId>org.jboss.weld.se</groupId>
+            <artifactId>weld-se-core</artifactId>
+            <version>5.1.2.Final</version>
+            <scope>test</scope>
+        </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter</artifactId>
-            <version>5.8.2</version>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.9.2</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>5.9.2</version>
             <scope>test</scope>
         </dependency>
         
@@ -111,6 +158,33 @@
             <groupId>org.mindrot</groupId>
             <artifactId>jbcrypt</artifactId>
             <version>0.4</version>
+        </dependency>
+        
+          <!-- Core de Arquillian -->
+        <dependency>
+          <groupId>org.jboss.arquillian.junit5</groupId>
+          <artifactId>arquillian-junit5-container</artifactId>
+          <scope>test</scope>
+        </dependency>
+
+        <!-- Adaptador para WildFly Managed -->
+        <dependency>
+            <groupId>org.wildfly.arquillian</groupId>
+            <artifactId>wildfly-arquillian-container-managed</artifactId>
+            <version>2.1.1.Final</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Para empaquetar tu WAR de test -->
+        <dependency>
+          <groupId>org.jboss.shrinkwrap</groupId>
+          <artifactId>shrinkwrap-api</artifactId>
+          <scope>test</scope>
+        </dependency>
+        <dependency>
+          <groupId>org.jboss.shrinkwrap</groupId>
+          <artifactId>shrinkwrap-impl-base</artifactId>
+          <scope>test</scope>
         </dependency>
     </dependencies>
 

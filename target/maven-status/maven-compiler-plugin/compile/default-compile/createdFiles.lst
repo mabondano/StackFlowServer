@@ -64,6 +64,7 @@ com\merlab\stackflow\test\MyService.class
 com\merlab\stackflow\service\impl\BatchProcessorServiceBean.class
 com\merlab\stackflow\service\PipelineVersionServiceLocal.class
 com\merlab\stackflow\config\ConfigKeys.class
+com\merlab\stackflow\test\ServiceTestMain.class
 com\merlab\stackflow\datamanager\DataManagerServiceBean.class
 com\merlab\stackflow\persistence\dao\ScenarioDAOLocal.class
 com\merlab\stackflow\service\ScenarioManagerServiceLocal.class
@@ -78,6 +79,7 @@ com\merlab\stackflow\memory\SimpleMemoryManager.class
 com\merlab\stackflow\persistence\entity\Schedules.class
 com\merlab\stackflow\core\OrchestratorServiceLocal2.class
 com\merlab\stackflow\db\DBConnectionProvider.class
+com\merlab\stackflow\service\InMemoryUserDao.class
 com\merlab\stackflow\service\ArchivingServiceLocal.class
 com\merlab\stackflow\util\StackElement.class
 com\merlab\stackflow\service\impl\SignalService.class
