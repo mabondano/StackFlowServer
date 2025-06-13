@@ -22,13 +22,14 @@ public class UserServiceBean implements UserServiceLocal {
 
     @Override
     public Users registerUser(Users user) {
-        // Validaciones básicas
+        // 1) Validaciones básicas: Validar unicidad de username
         if (userDao.findByUsername(user.getUsername()) != null) {
             throw new IllegalArgumentException("Username ya existe");
         }
-        // Hash de contraseña
+        // 2) Hash de contraseña
         String hashed = BCrypt.hashpw(user.getPasswordHash(), BCrypt.gensalt());
         user.setPasswordHash(hashed);
+        // 3) persistir
         userDao.save(user);
         return user;
     }
