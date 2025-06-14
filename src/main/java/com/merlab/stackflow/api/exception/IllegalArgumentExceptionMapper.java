@@ -19,26 +19,24 @@
 
 package com.merlab.stackflow.api.exception;
 
-import jakarta.ws.rs.NotFoundException;
-import jakarta.ws.rs.core.MediaType;
-import jakarta.ws.rs.core.Response;
-import jakarta.ws.rs.ext.ExceptionMapper;
-import jakarta.ws.rs.ext.Provider;
-import java.util.Map;
+import jakarta.ws.rs.core.*;
+import jakarta.ws.rs.ext.*;
+import java.util.Collections;
 
 /**
  *
  * @author merly
  */
 @Provider
-public class NotFoundExceptionMapper
-    implements ExceptionMapper<NotFoundException> {
-    
-  @Override
-  public Response toResponse(NotFoundException ex) {
-    return Response.status(Response.Status.NOT_FOUND)
-                   .entity(Map.of("error", ex.getMessage()))
-                   .type(MediaType.APPLICATION_JSON)
-                   .build();
-  }
+public class IllegalArgumentExceptionMapper
+    implements ExceptionMapper<IllegalArgumentException> {
+
+    @Override
+    public Response toResponse(IllegalArgumentException ex) {
+        return Response.status(Response.Status.CONFLICT)   // 409
+                       .entity(Collections.singletonMap("error", ex.getMessage()))
+                       .type(MediaType.APPLICATION_JSON)
+                       .build();
+    }
 }
+

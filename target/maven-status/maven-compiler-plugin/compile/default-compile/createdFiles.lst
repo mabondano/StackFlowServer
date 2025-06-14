@@ -35,6 +35,7 @@ com\merlab\stackflow\service\impl\MonitorService.class
 com\merlab\stackflow\datamanager\DataManagerServiceLocal.class
 com\merlab\stackflow\persistence\dao\impl\TestDaoBean.class
 com\merlab\stackflow\persistence\dao\impl\DBAdapterBean.class
+com\merlab\stackflow\api\exception\IllegalArgumentExceptionMapper.class
 com\merlab\stackflow\api\TestDBResource.class
 com\merlab\stackflow\mlcore\MLCoreService.class
 com\merlab\stackflow\statistics\StatisticsService.class
@@ -75,6 +76,7 @@ com\merlab\stackflow\service\ScenarioManagerServiceLocal.class
 com\merlab\stackflow\service\ISignalService.class
 com\merlab\stackflow\persistence\entity\ScenarioEntities.class
 com\merlab\stackflow\service\PipelineVersionServiceBean.class
+com\merlab\stackflow\api\exception\GenericExceptionMapper.class
 com\merlab\stackflow\statistics\StatisticsServiceImpl.class
 com\merlab\stackflow\api\exception\ValidationExceptionMapper.class
 com\merlab\stackflow\merlabcore\RPNStack.class

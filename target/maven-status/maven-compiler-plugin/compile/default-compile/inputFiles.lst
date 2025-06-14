@@ -15,6 +15,7 @@ C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\service\impl\StreamProcessorServiceBean.java
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\test\LoggingTest.java
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\orchestrator\JobOrchestrator.java
+C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\api\exception\GenericExceptionMapper.java
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\mlcore\MLCoreService.java
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\persistence\dao\ScenarioDAOLocal.java
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\api\UserResource.java
@@ -114,5 +115,6 @@ C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\persistence\entity\SignalGroups.java
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\mlcore\MLCoreServiceImpl.java
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\persistence\entity\PipelineSteps.java
+C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\api\exception\IllegalArgumentExceptionMapper.java
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\config\StartupBean.java
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\service\impl\BatchProcessorServiceBean.java
