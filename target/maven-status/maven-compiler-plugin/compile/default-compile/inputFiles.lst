@@ -9,6 +9,7 @@ C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\service\PipelineVersionServiceBean.java
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\persistence\entity\Scenario.java
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\persistence\entity\UserSettings.java
+C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\api\exception\NotFoundExceptionMapper.java
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\persistence\dao\DBAdapterLocal.java
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\persistence\dao\impl\UserRole.java
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\service\impl\StreamProcessorServiceBean.java
@@ -100,6 +101,7 @@ C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\memory\MemoryManager.java
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\persistence\entity\SignalData.java
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\service\WorkerServiceLocal.java
+C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\api\exception\ValidationExceptionMapper.java
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\persistence\entity\ScenarioRuns.java
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\memory\SimpleMemoryManager.java
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\persistence\dao\impl\ScenarioDAOImpl.java

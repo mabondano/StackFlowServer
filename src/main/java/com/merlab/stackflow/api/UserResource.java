@@ -5,6 +5,7 @@ import com.merlab.stackflow.service.UserServiceLocal;
 import com.merlab.stackflow.persistence.entity.Users;
 import com.merlab.stackflow.api.dto.UserDTO;
 import jakarta.ejb.EJB;
+import jakarta.validation.Valid;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.*;
 import java.util.List;
@@ -49,7 +50,7 @@ public class UserResource {
     }
 
     @POST
-    public Response create(UserDTO d, @Context UriInfo uriInfo) {
+    public Response create(@Valid UserDTO d, @Context UriInfo uriInfo) {
         Users u = fromDto(d);
         // aquí deberíamos leer contraseña de un DTO extendido
         Users saved = svc.registerUser(u);
@@ -58,7 +59,7 @@ public class UserResource {
     }
 
     @PUT @Path("{id}")
-    public Response update(@PathParam("id") Long id, UserDTO d) {
+    public Response update(@PathParam("id") Long id, @Valid UserDTO d) {
         d.id = id;
         Users u = fromDto(d);
         Users updated = svc.updateUser(u);

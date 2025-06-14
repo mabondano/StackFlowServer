@@ -8,6 +8,7 @@ import com.merlab.stackflow.service.UserServiceLocal;
 import java.util.List;
 import jakarta.ejb.EJB;
 import jakarta.ejb.Stateless;
+import jakarta.ws.rs.NotFoundException;
 import org.mindrot.jbcrypt.BCrypt;
 
 /**
@@ -36,7 +37,11 @@ public class UserServiceBean implements UserServiceLocal {
 
     @Override
     public Users getUserById(Long id) {
-        return userDao.findById(id);
+        //return userDao.findById(id);
+        Users u = userDao.findById(id);
+        //ExceptionMapper para 404
+        if (u == null) throw new NotFoundException("User not found: " + id);
+        return u;
     }
 
     @Override

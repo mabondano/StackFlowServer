@@ -30,6 +30,7 @@ com\merlab\stackflow\util\Operation.class
 com\merlab\stackflow\service\impl\StreamProcessorServiceBean.class
 com\merlab\stackflow\service\impl\RPNStackService.class
 com\merlab\stackflow\orchestrator\JobOrchestrator.class
+com\merlab\stackflow\api\exception\NotFoundExceptionMapper.class
 com\merlab\stackflow\service\impl\MonitorService.class
 com\merlab\stackflow\datamanager\DataManagerServiceLocal.class
 com\merlab\stackflow\persistence\dao\impl\TestDaoBean.class
@@ -51,6 +52,7 @@ com\merlab\stackflow\service\impl\UserServiceBean.class
 com\merlab\stackflow\test\TestDBAccess.class
 com\merlab\stackflow\service\impl\GeneralServiceImpl.class
 com\merlab\stackflow\service\GeneralService.class
+com\merlab\stackflow\api\exception\ValidationExceptionMapper$Violation.class
 com\merlab\stackflow\util\Buffer.class
 com\merlab\stackflow\persistence\dao\PipelineVersionDaoLocal.class
 com\merlab\stackflow\orchestrator\DefaultJobOrchestrator.class
@@ -74,6 +76,7 @@ com\merlab\stackflow\service\ISignalService.class
 com\merlab\stackflow\persistence\entity\ScenarioEntities.class
 com\merlab\stackflow\service\PipelineVersionServiceBean.class
 com\merlab\stackflow\statistics\StatisticsServiceImpl.class
+com\merlab\stackflow\api\exception\ValidationExceptionMapper.class
 com\merlab\stackflow\merlabcore\RPNStack.class
 com\merlab\stackflow\persistence\entity\Scenario.class
 com\merlab\stackflow\persistence\entity\SignalGroups.class
