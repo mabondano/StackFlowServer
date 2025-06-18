@@ -4,6 +4,7 @@ C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\persistence\entity\ModelFiles.java
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\persistence\entity\JobQueue.java
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\persistence\entity\Projects.java
+C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\api\jms\SignalProcessorMDB.java
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\service\impl\WorkerServiceBean.java
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\signals\SignalProcessor.java
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\service\PipelineVersionServiceBean.java
@@ -18,14 +19,12 @@ C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\api\exception\GenericExceptionMapper.java
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\mlcore\MLCoreService.java
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\persistence\dao\ScenarioDAOLocal.java
-C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\api\UserResource.java
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\core\OrchestratorServiceLocal2.java
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\service\impl\GeneralServiceImpl.java
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\service\impl\PluginManagerServiceBean.java
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\persistence\entity\Config.java
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\db\HikariCPConnectionProvider.java
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\service\impl\ArchivingServiceBean.java
-C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\api\APILayer.java
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\persistence\dao\UserDaoLocal.java
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\test\TestDBAccess.java
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\persistence\entity\Signals.java
@@ -65,6 +64,7 @@ C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\persistence\entity\PipelineVersion.java
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\service\ScenarioManagerServiceLocal.java
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\config\ConfigException.java
+C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\service\SignalServiceLocal.java
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\api\dto\UserDTO.java
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\persistence\entity\History.java
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\statistics\StatisticsServiceImpl.java
@@ -75,7 +75,6 @@ C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\persistence\dao\impl\UserDaoBean.java
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\test\PlotlyInJavaFX.java
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\config\ConfigManager.java
-C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\service\ISignalService.java
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\persistence\dao\impl\DBAdapterBean.java
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\persistence\dao\PipelineVersionDaoLocal.java
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\service\impl\OrchestratorServiceBean.java
@@ -84,6 +83,7 @@ C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\service\ArchivingServiceLocal.java
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\service\impl\SignalService.java
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\service\PipelineExecutorBean.java
+C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\api\rest\UserResource.java
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\service\StreamProcessorServiceLocal.java
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\util\Operation.java
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\persistence\entity\User.java
@@ -105,13 +105,15 @@ C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\api\exception\ValidationExceptionMapper.java
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\persistence\entity\ScenarioRuns.java
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\memory\SimpleMemoryManager.java
+C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\api\websocket\SignalSocketEndpoint.java
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\persistence\dao\impl\ScenarioDAOImpl.java
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\persistence\entity\Models.java
+C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\api\rest\TestDBResource.java
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\service\BatchProcessorServiceLocal.java
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\persistence\entity\TestEntity.java
+C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\api\rest\APILayer.java
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\datamanager\DataManagerServiceLocal.java
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\persistence\entity\Pipelines.java
-C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\api\TestDBResource.java
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\persistence\entity\SignalGroups.java
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\mlcore\MLCoreServiceImpl.java
 C:\merLab\projects\StackFlowServer\stackflow\src\main\java\com\merlab\stackflow\persistence\entity\PipelineSteps.java

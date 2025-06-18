@@ -17,18 +17,13 @@
  * limitations under the License.
  */
 
-package com.merlab.stackflow.service.impl;
 
-import jakarta.enterprise.context.ApplicationScoped;
-import com.merlab.stackflow.service.SignalServiceLocal;
+package com.merlab.stackflow.api.rest;
 
 /**
  *
  * @author merly
  */
-@ApplicationScoped
-public class SignalService implements SignalServiceLocal {
-    @Override
-    public void processSignal() { /* ... */ }
+public class APILayer {
+    
 }
-
