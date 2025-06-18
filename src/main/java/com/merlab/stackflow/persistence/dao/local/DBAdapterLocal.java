@@ -17,15 +17,15 @@
  * limitations under the License.
  */
 
-package com.merlab.stackflow.persistence.dao;
+package com.merlab.stackflow.persistence.dao.local;
 
-import com.merlab.stackflow.persistence.entity.TestEntity;
-import java.util.List;
+import jakarta.ejb.Local;
 
-public interface TestDaoLocal {
-    TestEntity findById(int id);
-    List<TestEntity> findAll();
-    void save(TestEntity entity);
-    void update(TestEntity entity);
-    void delete(TestEntity entity);
+/**
+ *
+ * @author merly
+ */
+@Local
+public interface DBAdapterLocal {
+    
 }

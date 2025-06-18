@@ -20,7 +20,7 @@
 package com.merlab.stackflow.test;
 
 
-import com.merlab.stackflow.persistence.dao.TestDaoLocal;
+import com.merlab.stackflow.persistence.dao.local.TestDaoLocal;
 import com.merlab.stackflow.persistence.entity.TestEntity;
 import jakarta.ejb.EJB;
 import jakarta.enterprise.context.ApplicationScoped;

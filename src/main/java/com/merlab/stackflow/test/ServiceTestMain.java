@@ -19,7 +19,7 @@
 
 package com.merlab.stackflow.test;
 
-import com.merlab.stackflow.persistence.dao.UserDaoLocal;
+import com.merlab.stackflow.persistence.dao.local.UserDaoLocal;
 //import com.merlab.stackflow.service.UserServiceLocal;
 import com.merlab.stackflow.persistence.entity.Users;
 import com.merlab.stackflow.service.impl.UserServiceBean;
@@ -38,7 +38,7 @@ public class ServiceTestMain {
         UserServiceBean svcBean = new UserServiceBean();
         
         // 2) Inyectar el DAO de prueba por reflexión
-        UserDaoLocal inMem = new com.merlab.stackflow.service.InMemoryUserDao();
+        UserDaoLocal inMem = new com.merlab.stackflow.persistence.dao.memory.InMemoryUserDao();
         Field daoField = UserServiceBean.class.getDeclaredField("userDao");
         daoField.setAccessible(true);
         daoField.set(svcBean, inMem);

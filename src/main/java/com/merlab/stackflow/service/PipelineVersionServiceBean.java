@@ -8,7 +8,7 @@ package com.merlab.stackflow.service;
  *
  * @author merly
  */
-import com.merlab.stackflow.persistence.dao.PipelineVersionDaoLocal;
+import com.merlab.stackflow.persistence.dao.local.PipelineVersionDaoLocal;
 import com.merlab.stackflow.persistence.entity.PipelineVersion;
 import jakarta.ejb.EJB;
 import jakarta.ejb.Stateless;

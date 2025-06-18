@@ -17,16 +17,15 @@
  * limitations under the License.
  */
 
-package com.merlab.stackflow.persistence.dao.impl;
+package com.merlab.stackflow.persistence.dao.local;
 
-import com.merlab.stackflow.persistence.dao.DBAdapterLocal;
-import jakarta.ejb.Stateless;
+import jakarta.ejb.Local;
 
 /**
  *
  * @author merly
  */
-@Stateless
-public class DBAdapterBean implements DBAdapterLocal{
+@Local
+public interface ScenarioDAOLocal {
     
 }

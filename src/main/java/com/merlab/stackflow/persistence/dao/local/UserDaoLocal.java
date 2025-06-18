@@ -17,7 +17,7 @@
  * limitations under the License.
  */
 
-package com.merlab.stackflow.persistence.dao;
+package com.merlab.stackflow.persistence.dao.local;
 
 import com.merlab.stackflow.persistence.entity.Users;
 import jakarta.ejb.Local;

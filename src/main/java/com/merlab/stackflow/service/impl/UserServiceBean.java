@@ -19,7 +19,7 @@
 
 package com.merlab.stackflow.service.impl;
 
-import com.merlab.stackflow.persistence.dao.UserDaoLocal;
+import com.merlab.stackflow.persistence.dao.local.UserDaoLocal;
 import com.merlab.stackflow.persistence.entity.Users;
 import com.merlab.stackflow.service.UserServiceLocal;
 import java.util.List;
@@ -98,4 +98,26 @@ public class UserServiceBean implements UserServiceLocal {
             userDao.delete(existing);
         }
     }
+    
+    //
+    public Users authenticate2(String username, String rawPassword) {
+        Users user = userDao.findByUsername(username);
+        if (user != null && user.getPasswordHash().equals(rawPassword)) {
+            return user;
+        }
+        return null;
+    }
+    
+
+
+    @Override
+    public Users authenticate(String username, String rawPassword) {
+        Users user = userDao.findByUsername(username);
+        if (user != null && BCrypt.checkpw(rawPassword, user.getPasswordHash())) {
+            return user;
+        }
+        return null;
+    }
+
+
 }

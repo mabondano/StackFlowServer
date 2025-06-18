@@ -19,6 +19,7 @@
 
 package com.merlab.stackflow.service;
 
+import com.merlab.stackflow.persistence.dao.memory.InMemoryUserDao;
 import com.merlab.stackflow.persistence.entity.Users;
 import com.merlab.stackflow.service.impl.UserServiceBean;
 import org.junit.jupiter.api.BeforeEach;

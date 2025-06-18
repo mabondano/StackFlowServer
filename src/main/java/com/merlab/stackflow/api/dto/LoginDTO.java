@@ -16,16 +16,19 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package com.merlab.stackflow.api.dto;
 
-package com.merlab.stackflow.persistence.dao;
-
-import jakarta.ejb.Local;
+import jakarta.validation.constraints.NotBlank;
 
 /**
- *
+ * DTO 
  * @author merly
  */
-@Local
-public interface ScenarioDAOLocal {
+public class LoginDTO {
     
+    @NotBlank(message = "Username is required")
+    public String username;
+
+    @NotBlank(message = "Password is required")
+    public String password;
 }

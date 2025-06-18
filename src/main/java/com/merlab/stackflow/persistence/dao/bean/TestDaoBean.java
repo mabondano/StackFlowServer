@@ -17,9 +17,9 @@
  * limitations under the License.
  */
 
-package com.merlab.stackflow.persistence.dao.impl;
+package com.merlab.stackflow.persistence.dao.bean;
 
-import com.merlab.stackflow.persistence.dao.TestDaoLocal;
+import com.merlab.stackflow.persistence.dao.local.TestDaoLocal;
 import com.merlab.stackflow.persistence.entity.TestEntity;
 import jakarta.ejb.Stateless;
 import jakarta.persistence.EntityManager;

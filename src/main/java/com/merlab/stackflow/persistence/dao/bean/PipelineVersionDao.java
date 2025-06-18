@@ -1,8 +1,8 @@
-package com.merlab.stackflow.persistence.dao.impl;
+package com.merlab.stackflow.persistence.dao.bean;
 
 
 
-import com.merlab.stackflow.persistence.dao.PipelineVersionDaoLocal;
+import com.merlab.stackflow.persistence.dao.local.PipelineVersionDaoLocal;
 
 
 /*

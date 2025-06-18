@@ -75,6 +75,8 @@ public interface UserServiceLocal {
      * @param id identificador del usuario a eliminar
      */
     void deleteUser(Long id);
+    
+    Users authenticate(String username, String rawPassword);
 }
 
 

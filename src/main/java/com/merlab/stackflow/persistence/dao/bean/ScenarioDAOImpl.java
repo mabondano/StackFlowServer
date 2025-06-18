@@ -17,10 +17,10 @@
  * limitations under the License.
  */
 
-package com.merlab.stackflow.persistence.dao.impl;
+package com.merlab.stackflow.persistence.dao.bean;
 
 import jakarta.ejb.Stateless;
-import com.merlab.stackflow.persistence.dao.ScenarioDAOLocal;
+import com.merlab.stackflow.persistence.dao.local.ScenarioDAOLocal;
 
 /**
  *
