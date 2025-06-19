@@ -21,7 +21,7 @@ package com.merlab.stackflow.api.rest;
 
 import com.merlab.stackflow.service.UserServiceLocal;
 import com.merlab.stackflow.persistence.entity.Users;
-import com.merlab.stackflow.api.dto.UserDTO;
+import com.merlab.stackflow.api.dto.UserDTOMock;
 import jakarta.ejb.EJB;
 import jakarta.validation.Valid;
 import jakarta.ws.rs.*;
@@ -37,14 +37,14 @@ public class UserResource {
     @EJB
     private UserServiceLocal svc;
 
-    private UserDTO toDto(Users u) {
-        UserDTO d = new UserDTO();
+    private UserDTOMock toDto(Users u) {
+        UserDTOMock d = new UserDTOMock();
         d.id       = u.getId();
         d.username = u.getUsername();
         d.email    = u.getEmail();
         return d;
     }
-    private Users fromDto(UserDTO d) {
+    private Users fromDto(UserDTOMock d) {
         Users u = new Users();
         u.setId(d.id);
         u.setUsername(d.username);
@@ -54,7 +54,7 @@ public class UserResource {
     }
 
     @GET
-    public List<UserDTO> list() {
+    public List<UserDTOMock> list() {
         return svc.listUsers().stream()
                   .map(this::toDto)
                   .collect(Collectors.toList());
@@ -68,7 +68,7 @@ public class UserResource {
     }
 
     @POST
-    public Response create(@Valid UserDTO d, @Context UriInfo uriInfo) {
+    public Response create(@Valid UserDTOMock d, @Context UriInfo uriInfo) {
         Users u = fromDto(d);
         // aquí deberíamos leer contraseña de un DTO extendido
         Users saved = svc.registerUser(u);
@@ -77,7 +77,7 @@ public class UserResource {
     }
 
     @PUT @Path("{id}")
-    public Response update(@PathParam("id") Long id, @Valid UserDTO d) {
+    public Response update(@PathParam("id") Long id, @Valid UserDTOMock d) {
         d.id = id;
         Users u = fromDto(d);
         Users updated = svc.updateUser(u);

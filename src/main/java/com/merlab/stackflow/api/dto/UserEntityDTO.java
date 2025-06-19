@@ -38,7 +38,12 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-public class UserDTO implements Serializable {
+/**
+ * DTO provisional que usa entidades directamente (no mapea a DTOs).
+ * Se eliminará cuando todos los mappers y DTOs estén listos.
+ */
+
+public class UserEntityDTO implements Serializable {
 
     public Long id;
     public String username;
@@ -46,26 +51,26 @@ public class UserDTO implements Serializable {
     public String password; // Este campo sustituye passwordHash en la entrada
     public Date createdAt;
 
-    public List<ProjectDTO> projectsList;
-    public List<RoleDTO> rolesList;
-    public List<ProjectDTO> projectsList1;
-    public List<ScenarioRunDTO> scenarioRunsList;
-    public List<ScenarioDTO> scenariosList;
-    public List<UserSettingDTO> userSettingsList;
-    public List<PipelineDTO> pipelinesList;
-    public List<DbConnectionDTO> dbConnectionsList;
-    public List<ScheduleDTO> schedulesList;
-    public List<ModelDTO> modelsList;
-    public List<JobQueueDTO> jobQueueList;
-    public List<HistoryDTO> historyList;
-    public List<SignalGroupDTO> signalGroupsList;
-    public List<SignalDTO> signalsList;
-    public List<MemorySlotDTO> memorySlotsList;
+    public List<Projects> projectsList;
+    public List<Roles> rolesList;
+    public List<Projects> projectsList1;
+    public List<ScenarioRuns> scenarioRunsList;
+    public List<Scenarios> scenariosList;
+    public List<UserSettings> userSettingsList;
+    public List<Pipelines> pipelinesList;
+    public List<DbConnections> dbConnectionsList;
+    public List<Schedules> schedulesList;
+    public List<Models> modelsList;
+    public List<JobQueue> jobQueueList;
+    public List<History> historyList;
+    public List<SignalGroups> signalGroupsList;
+    public List<Signals> signalsList;
+    public List<MemorySlots> memorySlotsList;
 
-    public UserDTO() {
+    public UserEntityDTO() {
     }
 
-    public UserDTO(Long id, String username, String email, String password) {
+    public UserEntityDTO(Long id, String username, String email, String password) {
         this.id = id;
         this.username = username;
         this.email = email;
@@ -112,123 +117,123 @@ public class UserDTO implements Serializable {
         this.createdAt = createdAt;
     }
 
-    public List<ProjectDTO> getProjectsList() {
+    public List<Projects> getProjectsList() {
         return projectsList;
     }
 
-    public void setProjectsList(List<ProjectDTO> projectsList) {
+    public void setProjectsList(List<Projects> projectsList) {
         this.projectsList = projectsList;
     }
 
-    public List<RoleDTO> getRolesList() {
+    public List<Roles> getRolesList() {
         return rolesList;
     }
 
-    public void setRolesList(List<RoleDTO> rolesList) {
+    public void setRolesList(List<Roles> rolesList) {
         this.rolesList = rolesList;
     }
 
-    public List<ProjectDTO> getProjectsList1() {
+    public List<Projects> getProjectsList1() {
         return projectsList1;
     }
 
-    public void setProjectsList1(List<ProjectDTO> projectsList1) {
+    public void setProjectsList1(List<Projects> projectsList1) {
         this.projectsList1 = projectsList1;
     }
 
-    public List<ScenarioRunDTO> getScenarioRunsList() {
+    public List<ScenarioRuns> getScenarioRunsList() {
         return scenarioRunsList;
     }
 
-    public void setScenarioRunsList(List<ScenarioRunDTO> scenarioRunsList) {
+    public void setScenarioRunsList(List<ScenarioRuns> scenarioRunsList) {
         this.scenarioRunsList = scenarioRunsList;
     }
 
-    public List<ScenarioDTO> getScenariosList() {
+    public List<Scenarios> getScenariosList() {
         return scenariosList;
     }
 
-    public void setScenariosList(List<ScenarioDTO> scenariosList) {
+    public void setScenariosList(List<Scenarios> scenariosList) {
         this.scenariosList = scenariosList;
     }
 
-    public List<UserSettingDTO> getUserSettingsList() {
+    public List<UserSettings> getUserSettingsList() {
         return userSettingsList;
     }
 
-    public void setUserSettingsList(List<UserSettingDTO> userSettingsList) {
+    public void setUserSettingsList(List<UserSettings> userSettingsList) {
         this.userSettingsList = userSettingsList;
     }
 
-    public List<PipelineDTO> getPipelinesList() {
+    public List<Pipelines> getPipelinesList() {
         return pipelinesList;
     }
 
-    public void setPipelinesList(List<PipelineDTO> pipelinesList) {
+    public void setPipelinesList(List<Pipelines> pipelinesList) {
         this.pipelinesList = pipelinesList;
     }
 
-    public List<DbConnectionDTO> getDbConnectionsList() {
+    public List<DbConnections> getDbConnectionsList() {
         return dbConnectionsList;
     }
 
-    public void setDbConnectionsList(List<DbConnectionDTO> dbConnectionsList) {
+    public void setDbConnectionsList(List<DbConnections> dbConnectionsList) {
         this.dbConnectionsList = dbConnectionsList;
     }
 
-    public List<ScheduleDTO> getSchedulesList() {
+    public List<Schedules> getSchedulesList() {
         return schedulesList;
     }
 
-    public void setSchedulesList(List<ScheduleDTO> schedulesList) {
+    public void setSchedulesList(List<Schedules> schedulesList) {
         this.schedulesList = schedulesList;
     }
 
-    public List<ModelDTO> getModelsList() {
+    public List<Models> getModelsList() {
         return modelsList;
     }
 
-    public void setModelsList(List<ModelDTO> modelsList) {
+    public void setModelsList(List<Models> modelsList) {
         this.modelsList = modelsList;
     }
 
-    public List<JobQueueDTO> getJobQueueList() {
+    public List<JobQueue> getJobQueueList() {
         return jobQueueList;
     }
 
-    public void setJobQueueList(List<JobQueueDTO> jobQueueList) {
+    public void setJobQueueList(List<JobQueue> jobQueueList) {
         this.jobQueueList = jobQueueList;
     }
 
-    public List<HistoryDTO> getHistoryList() {
+    public List<History> getHistoryList() {
         return historyList;
     }
 
-    public void setHistoryList(List<HistoryDTO> historyList) {
+    public void setHistoryList(List<History> historyList) {
         this.historyList = historyList;
     }
 
-    public List<SignalGroupDTO> getSignalGroupsList() {
+    public List<SignalGroups> getSignalGroupsList() {
         return signalGroupsList;
     }
 
-    public void setSignalGroupsList(List<SignalGroupDTO> signalGroupsList) {
+    public void setSignalGroupsList(List<SignalGroups> signalGroupsList) {
         this.signalGroupsList = signalGroupsList;
     }
 
-    public List<SignalDTO> getSignalsList() {
+    public List<Signals> getSignalsList() {
         return signalsList;
     }
 
-    public void setSignalsList(List<SignalDTO> signalsList) {
+    public void setSignalsList(List<Signals> signalsList) {
         this.signalsList = signalsList;
     }
 
-    public List<MemorySlotDTO> getMemorySlotsList() {
+    public List<MemorySlots> getMemorySlotsList() {
         return memorySlotsList;
     }
 
-    public void setMemorySlotsList(List<MemorySlotDTO> memorySlotsList) {
+    public void setMemorySlotsList(List<MemorySlots> memorySlotsList) {
         this.memorySlotsList = memorySlotsList;
     }
 
@@ -237,4 +242,3 @@ public class UserDTO implements Serializable {
         return "com.merlab.stackflow.api.dto.UserDTO[ id=" + id + " ]";
     }
 }
-

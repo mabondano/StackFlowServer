@@ -19,58 +19,59 @@
 
 package com.merlab.stackflow.persistence.dao.bean;
 
+import com.merlab.stackflow.persistence.dao.local.RoleDaoLocal;
+import com.merlab.stackflow.persistence.entity.Roles;
 import jakarta.ejb.Stateless;
-import com.merlab.stackflow.persistence.entity.Users;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import java.util.List;
-import com.merlab.stackflow.persistence.dao.local.UserDaoLocal;
 
-/**
- *
- * @author merly
- */
 @Stateless
-public class UserDaoBean implements UserDaoLocal {
+public class RoleDaoBean implements RoleDaoLocal {
 
-    @PersistenceContext(unitName = "StackflowPU")
+    @PersistenceContext(unitName = "StackflowPU") 
     private EntityManager em;
 
     @Override
-    public Users findById(Long id) {
-        return em.find(Users.class, id);
+    public void create(Roles role) {
+        em.persist(role);
     }
 
     @Override
-    public List<Users> findAll() {
-        return em.createQuery("SELECT u FROM Users u", Users.class)
-                 .getResultList();
+    public void save(Roles role) {
+        em.merge(role);
     }
 
     @Override
-    public void save(Users user) {
-        em.persist(user);
+    public void update(Roles role) {
+        em.merge(role);
     }
 
     @Override
-    public void update(Users user) {
-        em.merge(user);
+    public void delete(Roles role) {
+        Roles managed = em.contains(role) ? role : em.merge(role);
+        em.remove(managed);
     }
 
     @Override
-    public void delete(Users user) {
-        em.remove(em.contains(user) ? user : em.merge(user));
+    public Roles findById(Long id) {
+        return em.find(Roles.class, id);
     }
 
     @Override
-    public Users findByUsername(String username) {
+    public Roles findByName(String name) {
         try {
-            return em.createQuery(
-                    "SELECT u FROM Users u WHERE u.username = :uname", Users.class)
-                     .setParameter("uname", username)
+            return em.createNamedQuery("Roles.findByName", Roles.class)
+                     .setParameter("name", name)
                      .getSingleResult();
-        } catch (jakarta.persistence.NoResultException e) {
+        } catch (Exception e) {
             return null;
         }
+    }
+
+    @Override
+    public List<Roles> findAll() {
+        return em.createNamedQuery("Roles.findAll", Roles.class)
+                 .getResultList();
     }
 }

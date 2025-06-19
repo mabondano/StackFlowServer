@@ -17,15 +17,27 @@
  * limitations under the License.
  */
 
-package com.merlab.stackflow.service;
 
+package com.merlab.stackflow.persistence.dao.local;
+
+import com.merlab.stackflow.persistence.entity.Roles;
 import jakarta.ejb.Local;
+import java.util.List;
 
-/**
- *
- * @author merly
- */
 @Local
-public interface SignalServiceLocal {
-    void processSignal();
+public interface RoleDaoLocal {
+
+    void create(Roles role);
+
+    void save(Roles role);
+
+    void update(Roles role);
+
+    void delete(Roles role); // ← AGREGADO
+
+    Roles findById(Long id);
+
+    Roles findByName(String name);
+
+    List<Roles> findAll();
 }

@@ -17,15 +17,32 @@
  * limitations under the License.
  */
 
-package com.merlab.stackflow.service;
+package com.merlab.stackflow.api.mapper;
 
-import jakarta.ejb.Local;
+import com.merlab.stackflow.api.dto.RoleDTO;
+import com.merlab.stackflow.persistence.entity.Roles;
 
-/**
- *
- * @author merly
- */
-@Local
-public interface SignalServiceLocal {
-    void processSignal();
+public class RoleMapper {
+
+    public static RoleDTO toDTO(Roles entity) {
+        if (entity == null) return null;
+
+        RoleDTO dto = new RoleDTO();
+        // TODO: mapear atributos reales
+        return dto;
+    }
+
+    public static Roles toEntity(RoleDTO dto) {
+        if (dto == null) return null;
+
+        Roles entity = new Roles();
+        // TODO: mapear atributos reales
+        return entity;
+    }
+
+    @Override
+    public String toString() {
+        return "RoleMapper{}";
+    }
 }
+

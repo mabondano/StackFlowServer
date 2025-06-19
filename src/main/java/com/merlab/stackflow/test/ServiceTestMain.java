@@ -19,14 +19,12 @@
 
 package com.merlab.stackflow.test;
 
-import com.merlab.stackflow.persistence.dao.local.UserDaoLocal;
 //import com.merlab.stackflow.service.UserServiceLocal;
 import com.merlab.stackflow.persistence.entity.Users;
 import com.merlab.stackflow.service.impl.UserServiceBean;
 //import jakarta.ejb.embeddable.EJBContainer;
 import java.lang.reflect.Field;
-//import javax.naming.Context;
-
+import com.merlab.stackflow.persistence.dao.local.UserDaoLocal;
 /**
  *
  * @author merly

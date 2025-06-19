@@ -182,6 +182,14 @@ public class Users implements Serializable {
     public void setPasswordHash(String passwordHash) {
         this.passwordHash = passwordHash;
     }
+    
+    public String getPassword() {
+        return getPasswordHash();
+    }
+
+    public void setPassword(String password) {
+        setPasswordHash(password);
+    }
 
     public Date getCreatedAt() {
         return createdAt;

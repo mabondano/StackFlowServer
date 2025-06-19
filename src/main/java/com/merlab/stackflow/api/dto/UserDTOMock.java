@@ -17,15 +17,25 @@
  * limitations under the License.
  */
 
-package com.merlab.stackflow.service;
+package com.merlab.stackflow.api.dto;
 
-import jakarta.ejb.Local;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 
 /**
- *
+ * DTO con validaciones
  * @author merly
  */
-@Local
-public interface SignalServiceLocal {
-    void processSignal();
+public class UserDTOMock {
+    public Long   id;
+    
+    @NotBlank(message = "Username is required")
+    @Size(min = 3, max = 100, message = "Username must be 3–100 characters")
+    public String username;
+    
+    @NotBlank(message = "Email is required")
+    @Email(message = "Email must be valid")
+    public String email;
+    // no enviamos passwordHash    
 }

@@ -19,7 +19,6 @@
 
 package com.merlab.stackflow.service.impl;
 
-import com.merlab.stackflow.persistence.dao.local.UserDaoLocal;
 import com.merlab.stackflow.persistence.entity.Users;
 import com.merlab.stackflow.service.UserServiceLocal;
 import java.util.List;
@@ -27,6 +26,7 @@ import jakarta.ejb.EJB;
 import jakarta.ejb.Stateless;
 import jakarta.ws.rs.NotFoundException;
 import org.mindrot.jbcrypt.BCrypt;
+import com.merlab.stackflow.persistence.dao.local.UserDaoLocal;
 
 /**
  *
