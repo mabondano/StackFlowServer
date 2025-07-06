@@ -64,6 +64,7 @@ v v v v
 
 ---
 <img width="308" alt="image" src="https://github.com/user-attachments/assets/2e2dae18-070c-4ca9-bbe9-4667aeeaff04" />
+<img width="506" alt="image" src="https://github.com/user-attachments/assets/c5a63d10-aac8-4a59-bbd9-61ab94ab93de" />
 
 ---
 ## Example Use Cases
