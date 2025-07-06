@@ -63,7 +63,9 @@ v v v v
 ```
 
 ---
+<img width="308" alt="image" src="https://github.com/user-attachments/assets/2e2dae18-070c-4ca9-bbe9-4667aeeaff04" />
 
+---
 ## Example Use Cases
 
 ### 1. **Medical Data Batch Analysis**
