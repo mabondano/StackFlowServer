@@ -67,6 +67,127 @@ v v v v
 <img width="506" alt="image" src="https://github.com/user-attachments/assets/c5a63d10-aac8-4a59-bbd9-61ab94ab93de" />
 
 ---
+# 📘 StackFlowServer – Dynamic Pipeline Configuration Module
+
+## Overview
+
+This section describes the **new dynamic configuration module** we are integrating into the **StackFlowServer** project.  
+The module allows **loading versioned pipeline configurations and associated ML models when starting a pipeline**, without requiring hot reloading or continuous polling during execution.  
+
+This approach fits the **unique design of StackFlowServer**, which combines:
+
+- A **dynamic RPN (Reverse Polish Notation) stack** for pipeline definition.
+- A **custom processing language**.
+- Flexible configuration snapshots at pipeline start.
+
+Unlike many systems where the pipeline is static ("fixed boxes"), here the pipeline can be defined dynamically through StackFlowServer's stack logic.  
+
+---
+
+## ✨ Objectives
+
+- Enable **versioned configurations** for pipelines.
+- Allow **model selection and loading** at pipeline startup.
+- Avoid unnecessary polling of configuration changes during long-running computations.
+- Prepare the architecture for future microservice-based configuration storage if needed.
+
+---
+
+## 🛠️ New Components
+
+Below is a list of the new classes and their roles:
+
+| Class                   | Description                                                           |
+|-------------------------|-----------------------------------------------------------------------|
+| `ConfigProvider`        | Interface for fetching pipeline configuration from any source.       |
+| `LocalConfigService`    | Implementation that loads configuration from the local database.     |
+| `RemoteConfigClient`    | (Optional) Future implementation to load config via REST API.        |
+| `ConfigLoaderService`   | Central service to retrieve configuration when starting a pipeline.  |
+| `PipelineConfig`        | DTO containing configuration details (version, model path, parameters). |
+| `ModelManager`          | Loads the ML model specified in the configuration.                  |
+| `Orchestrator`          | Starts and stops pipelines, initializes the configuration and models.|
+
+---
+
+## 🎯 Usage Flow
+
+1. **User triggers pipeline start.**
+2. `Orchestrator` calls `ConfigLoaderService.loadConfig(pipelineName)`.
+3. The configuration snapshot is returned (`PipelineConfig`).
+4. `ModelManager` loads the model specified in the configuration.
+5. The `RPNStack` is initialized with the parameters.
+6. The pipeline starts processing with this configuration.
+7. To change configuration, the user stops the pipeline, updates settings, and starts again.
+
+This design ensures **deterministic execution** without unexpected configuration changes while the pipeline is active.
+
+---
+
+## 🧩 Architectural Diagram
+
+```plantuml
+@startuml
+package "API Layer" {
+    class APILayer
+}
+package "Orchestrator" {
+    class Orchestrator
+    class BatchProcessor
+    class StreamProcessor
+}
+package "Execution" {
+    class Worker
+    class RPNStack
+    class ModelManager
+}
+package "ML Core" {
+    class MerLabCore
+    class MLCore
+}
+package "Config Module" {
+    interface ConfigProvider
+    class LocalConfigService
+    class RemoteConfigClient
+    class ConfigLoaderService
+    class PipelineConfig
+}
+
+APILayer --> Orchestrator
+Orchestrator --> BatchProcessor
+Orchestrator --> StreamProcessor
+BatchProcessor --> Worker
+StreamProcessor --> Worker
+Worker --> RPNStack
+Worker --> ModelManager
+ModelManager --> MLCore
+ModelManager --> MerLabCore
+
+Orchestrator --> ConfigLoaderService
+ConfigLoaderService --> ConfigProvider
+ConfigProvider <|.. LocalConfigService
+ConfigProvider <|.. RemoteConfigClient
+ConfigLoaderService --> PipelineConfig
+ModelManager --> PipelineConfig
+@enduml
+```
+
+## 🌟 Key Characteristics
+✅ No continuous polling – configuration is loaded only when a pipeline starts.
+✅ Safe and predictable execution – model and parameters are fixed during processing.
+✅ Future-proof – architecture is ready to switch to microservice-based configuration if needed.
+✅ Dynamic pipeline definition – using RPN stack instead of static pipeline graphs.
+
+## 🚀 Next Steps
+1. Implement the LocalConfigService and ConfigLoaderService.
+2. Integrate ModelManager with actual model loading logic.
+3. Update Orchestrator and Worker to consume configuration.
+4. Add test cases for loading and starting pipelines.
+
+## 🙌 Contribution & Contact
+If you have questions or ideas to improve the architecture, feel free to contribute or reach out.
+
+
+---
 ## Example Use Cases
 
 ### 1. **Medical Data Batch Analysis**
