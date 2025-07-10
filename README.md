@@ -170,6 +170,9 @@ ConfigLoaderService --> PipelineConfig
 ModelManager --> PipelineConfig
 @enduml
 ```
+---
+
+<img width="304" alt="image" src="https://github.com/user-attachments/assets/8e26993b-f9f5-4b8e-a699-98e9e3db5ba9" />
 
 ## 🌟 Key Characteristics
 ✅ No continuous polling – configuration is loaded only when a pipeline starts.
