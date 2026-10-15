@@ -83,3 +83,12 @@ Para un **Spike**, "Qué se hizo" se sustituye por **Pregunta**, **Opciones** y 
 - **Commit:** `[DA-002]`
 - **Siguiente:** 0.1.1 Crear el tag `v1-legacy` (👤) → esperando ROGER
 
+
+### [0.1.1] Tag v1-legacy · 15.10.2026
+- **Agente:** Claude
+- **Qué se hizo:** tag anotado `v1-legacy` sobre el último commit de `master` (`53ef018`, "Merge origin/main"), que marca el StackFlowServer v1 (3 capas, Jakarta EE) antes de la reescritura. Solo local: el push del tag espera aprobación del usuario.
+- **Clases / archivos:** git (`refs/tags/v1-legacy`)
+- **Verificación:** `git log --oneline -1 v1-legacy` → `53ef018 Merge origin/main`
+- **Decisiones:** —
+- **Commit:** `[0.1.1]` (solo documentación; el tag no cambia archivos)
+- **Siguiente:** 0.1.3 Retirar el código v1 de la rama v2 → esperando ROGER
