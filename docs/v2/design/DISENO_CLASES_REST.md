@@ -1,5 +1,7 @@
 # StackFlowServer: diseño de clases del REST unificado
 
+> **Prevalecen [DECISIONES.md](DECISIONES.md) y [DISENO_REVISION_2.md](DISENO_REVISION_2.md)**: módulos, nombres de clases (tabla §11), perfiles `pegasus`/`modelforge` y alcance. Este documento sigue valiendo en lo que aquellos no cambian.
+>
 > **Copia canónica para la implementación v2** (rama `v2`, `docs/v2/design/`). Los roles definitivos son `VIEWER`, `ANALYST`, `AUDITOR` y `ADMIN` (Anexo A.5 de DISENO_REST_UNIFICADO.md).
 
 

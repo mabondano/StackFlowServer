@@ -1,14 +1,17 @@
 # StackFlowServer v2: documentación de trabajo
 
-Implementación nueva del REST unificado (StackFlow + MerLabCore + MerLabRAG opcional) en la rama `v2`. El código v1 (3 capas) sigue en `master` y en el tag `v1-legacy`, y **no se mezcla** con v2.
+Implementación nueva de StackFlowServer, la runtime de MerLabCore (stack RPN + ML sobre señales y datos), con PegasusRAG y ModelForge como motores opcionales, en la rama `v2`. El código v1 (3 capas) sigue en `master` y en el tag `v1-legacy`, y **no se mezcla** con v2.
 
 | Documento | Para qué |
 |---|---|
-| [ROADMAP.md](ROADMAP.md) | qué hay que hacer: 14 grupos, milestones y micropasos con clases, verificación y DoD |
+| [ROADMAP.md](ROADMAP.md) | qué hay que hacer: 16 grupos, 68 milestones y 265 micropasos con clases, verificación y DoD |
 | [TRACKING.md](TRACKING.md) | estado de cada micropaso: Pendiente, En proceso, Terminado o Bloqueado |
 | [UMSETZUNGSPLAN.md](UMSETZUNGSPLAN.md) | registro de lo hecho: resumen corto, clases implicadas, verificación y commit |
-| [design/DISENO_REST_UNIFICADO.md](design/DISENO_REST_UNIFICADO.md) | decisiones, endpoints, módulos, Anexo A (módulos del diseño v1) |
-| [design/DISENO_CLASES_REST.md](design/DISENO_CLASES_REST.md) | diagramas de clases, estados y secuencias (Mermaid y PlantUML) |
+| [design/DECISIONES.md](design/DECISIONES.md) | **1.º en precedencia:** decisiones aprobadas con ROGER (DA-001: EJB para servicios, Java puro para el motor) |
+| [design/DISENO_REVISION_2.md](design/DISENO_REVISION_2.md) | **2.º:** alcance, módulos, nombres, motor RPN, archivos, jobs, motores opcionales, audio y trading |
+| [design/DISENO_REST_UNIFICADO.md](design/DISENO_REST_UNIFICADO.md) | 3.º: endpoints, errores, Anexo A (módulos v1); traducir nombres con Revisión 2 §11 |
+| [design/DISENO_CLASES_REST.md](design/DISENO_CLASES_REST.md) | 3.º: diagramas de clases, estados y secuencias (Mermaid y PlantUML) |
+| [design/FUTURO_SPRING.md](design/FUTURO_SPRING.md) | notas para un posible host Spring (no planificado) |
 
 ## Protocolo ROGER
 
@@ -26,7 +29,7 @@ El trabajo avanza **un micropaso cada vez**. El usuario controla el ritmo con me
 1. **Leer** el TRACKING (sección "Paso actual") y el milestone del paso en el ROADMAP, más las secciones de diseño que cita.
 2. **Marcar** el paso como `En proceso` en el TRACKING.
 3. **Implementar solo ese paso** (clases y tests indicados).
-4. **Verificar**: `mvn -q -P!rag clean verify` en verde (desde J2 también con `-Prag`). Si el paso lo indica, el IT correspondiente.
+4. **Verificar**: `mvn -q -P!pegasus,!modelforge clean verify` en verde (desde J2 también con `-Ppegasus`; desde H3, con `-Pmodelforge`). Si el paso lo indica, el IT correspondiente.
 5. **Actualizar**:
    - TRACKING: estado `Terminado`, fecha, commit; en "Resumen por milestone", el contador y el estado; en "Paso actual", el siguiente ID;
    - UMSETZUNGSPLAN: una entrada nueva con la plantilla.
@@ -49,9 +52,11 @@ El trabajo avanza **un micropaso cada vez**. El usuario controla el ritmo con me
 
 ## Reglas que nunca se rompen
 
-1. No modificar **MerLabCore** ni **MerLabRAG** (ni sus miniservers). Se usan como JAR.
+1. No modificar **MerLabCore** ni **PegasusRAG/MerLabRAG** (ni sus miniservers). Se usan como JAR. No reimplementar algoritmos que ya existen en MerLabCore.
 2. No tocar `master`, el tag `v1-legacy` ni el código v1.
 3. No copiar código del proyecto de la empresa (`genai-java-rest-api`); solo se usa la forma de sus endpoints.
 4. Sin secretos en el código ni en git.
 5. Sin push ni tags remotos sin aprobación del usuario.
-6. Si el diseño y el roadmap no coinciden, manda el diseño. Si falta algo, se anota y se pregunta.
+6. Si el diseño y el roadmap no coinciden, manda el diseño (en su orden de precedencia). Si falta algo, se anota y se pregunta.
+7. Estilo DA-001: EJB (`XServiceLocal`/`XServiceBean`, `XDaoLocal`/`XDaoBean`) para lo que toca BD, seguridad, transacciones, hilos, timers o mensajes; Java puro para lo que solo calcula.
+8. Las decisiones de diseño solo se toman cuando el usuario escribe **ROGER**; una explicación o una pregunta no es una decisión.

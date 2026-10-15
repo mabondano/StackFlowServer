@@ -65,3 +65,13 @@ Para un **Spike**, "Qué se hizo" se sustituye por **Pregunta**, **Opciones** y 
 - **Clases / archivos:** `docs/v2/design/DECISIONES.md`, `docs/v2/design/FUTURO_SPRING.md`
 - **Commit:** `[DA-001]` (aprobado con ROGER)
 - **Siguiente:** Revisión 2 del diseño y del roadmap (nombres v1/Obsidian, módulos, RAG separado, ModelForge remoto, Merlynix al final) → esperando ROGER
+
+### [0.5.4] Revisión 2 del diseño y del roadmap · 15.10.2026
+- **Agente:** Claude
+- **Qué se hizo:** revisión aprobada con ROGER tras leer las notas de Obsidian. Nuevo `design/DISENO_REVISION_2.md` (alcance S1–S11, módulos de Obsidian, nombres v1, motor RPN de MerLabCore reutilizado, registry, archivos WAV/imagen/CSV/OHLCV, Orchestrator/Worker con EJB, motores opcionales Pegasus y ModelForge remoto, RAG separado con exportación al stack, audio y trading). ROADMAP reescrito: 16 grupos (0, A–G, U, I, H, J, K, L, M, N), 68 milestones y 265 micropasos; TRACKING regenerado. README y AGENTS actualizados (perfiles `pegasus` y `modelforge`, precedencia del diseño, DA-001).
+- **Clases / archivos:** `docs/v2/design/DISENO_REVISION_2.md`, `docs/v2/ROADMAP.md`, `docs/v2/TRACKING.md`, `docs/v2/README.md`, `AGENTS.md`
+- **Verificación:** tablas validadas; diagramas Mermaid y PlantUML validados.
+- **Decisiones:** sin Spring en v2; ModelForge solo remoto; Merlynix en el grupo N (después de 2.0); operaciones que falten en MerLabCore las añade el usuario fuera de este roadmap.
+- **Commit:** `[0.5.4]`
+- **Siguiente:** 0.1.1 Crear el tag `v1-legacy` (👤) → esperando ROGER
+
