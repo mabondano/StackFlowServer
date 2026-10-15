@@ -16,7 +16,7 @@ Este roadmap describe **toda** la implementación del REST unificado (StackFlow 
 
 | Elemento | Valor |
 |---|---|
-| Carpeta de trabajo (rama `v2`) | `C:\merLab\projects\StackFlowServer\stackflow-v2` (worktree del repo `stackflow`) |
+| Carpeta de trabajo (rama `v2`) | `C:\merLab\projects\StackFlowServer\stackflow` (el mismo proyecto de siempre, en la rama `v2`) |
 | Código v1 | rama `master` + tag `v1-legacy`. **No se toca y no se mezcla.** |
 | IDE | NetBeans (proyecto Maven multi-módulo) |
 | Java | 17 (`maven.compiler.release=17`) |
@@ -87,8 +87,8 @@ Formato de cada milestone: **Objetivo**, **Depende de**, **Diseño** (secciones)
 
 | ID | Micropaso | Clases / archivos | Verificación |
 |---|---|---|---|
-| 0.1.1 | 👤 Crear el tag `v1-legacy` sobre `master` (commit `79d1e53`). Push del tag solo si el usuario lo aprueba. No tocar el merge pendiente de `master`. | git | `git tag -l v1-legacy` |
-| 0.1.2 | Crear la rama `v2` desde `master` en el worktree `stackflow-v2`. | git worktree | `git -C stackflow-v2 branch --show-current` → `v2` |
+| 0.1.1 | 👤 Crear el tag `v1-legacy` sobre el último commit de `master` (`53ef018`, que incluye el merge de `origin/main`). Push del tag solo si el usuario lo aprueba. | git | `git tag -l v1-legacy` |
+| 0.1.2 | Crear la rama `v2` desde `master` y cambiar a ella en la carpeta `stackflow`. | git | `git branch --show-current` → `v2` |
 | 0.1.3 | En `v2`: mover la documentación v1 a `docs/v1/` (`API.md`, `DATABASE_SCHEMA.md`, `SETUP_GUIDE.md`, `Setup Guide.docx`, `sqlscript_stackflowdb.sql`, `postman/`). Borrar `src/`, `class_list.txt` y el `pom.xml` v1. | `docs/v1/` | `git status`; no queda `src/` en la raíz |
 | 0.1.4 | Crear `.gitignore` (`target/`, `nbproject/private/`, `*.class`, `*.log`, `.idea/`) y quitar `target/` del índice (`git rm -r --cached target`). | `.gitignore` | `git ls-files target` vacío |
 | 0.1.5 | README v2 provisional: qué es, cómo compilar y enlace a `docs/v2/`. | `README.md` | se ve en NetBeans y GitHub |
@@ -116,7 +116,7 @@ Formato de cada milestone: **Objetivo**, **Depende de**, **Diseño** (secciones)
 
 | ID | Micropaso | Clases / archivos | Verificación |
 |---|---|---|---|
-| 0.3.1 | 👤 Abrir `stackflow-v2` en NetBeans como proyecto padre y comprobar los módulos. Añadir `nb-configuration.xml` en `stackflow-web` con el hint de despliegue a WildFly. | `stackflow-web/nb-configuration.xml` | NetBeans muestra los módulos |
+| 0.3.1 | 👤 Abrir `stackflow` (rama `v2`) en NetBeans como proyecto padre y comprobar los módulos. Añadir `nb-configuration.xml` en `stackflow-web` con el hint de despliegue a WildFly. | `stackflow-web/nb-configuration.xml` | NetBeans muestra los módulos |
 | 0.3.2 | 👤 Registrar WildFly 36 en NetBeans (puerto HTTP 8090). Decidir el perfil del servidor: se recomienda `standalone-microprofile.xml` (OpenAPI, métricas, config). Anotar la decisión. | Umsetzungsplan | servidor arranca desde NetBeans |
 | 0.3.3 | 👤 Comprobar o crear los DataSources `java:/jdbc/StackflowDS` (stackflowdb) y `java:/jdbc/StackflowTestDS` (stackflowdb_test) con un script CLI versionado. | `scripts/wildfly/datasources.cli` | `jboss-cli` → `test-connection-in-pool` OK |
 | 0.3.4 | Desplegar el WAR vacío. | — | `GET http://localhost:8090/stackflow/` → 200 |

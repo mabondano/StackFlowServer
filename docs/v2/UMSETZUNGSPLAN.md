@@ -23,10 +23,10 @@ Para un **Spike**, "Qué se hizo" se sustituye por **Pregunta**, **Opciones** y 
 
 ### [0.1.2] Rama v2 creada · 15.10.2026
 - **Agente:** Claude
-- **Qué se hizo:** rama `v2` creada desde `master` (`79d1e53`) en un worktree aparte, porque `master` tiene un merge de `origin/main` sin terminar que no se toca.
-- **Clases / archivos:** worktree `C:\merLab\projects\StackFlowServer\stackflow-v2`
+- **Qué se hizo:** rama `v2` creada desde `master` (`79d1e53`). Primero se usó una carpeta aparte; a petición del usuario se cerró el merge pendiente de `master` con un commit normal (`53ef018`), se quitó esa carpeta y `stackflow` cambió a la rama `v2`.
+- **Clases / archivos:** carpeta `C:\merLab\projects\StackFlowServer\stackflow`
 - **Verificación:** `git branch --show-current` → `v2`; `master` sigue con su merge pendiente.
-- **Decisiones:** trabajar en el worktree `stackflow-v2`; en NetBeans se abre esa carpeta.
+- **Decisiones:** se trabaja en la misma carpeta `stackflow`; en NetBeans se cambia de rama, no de proyecto.
 - **Commit:** — (sin cambios de código)
 - **Siguiente:** 0.5.1
 

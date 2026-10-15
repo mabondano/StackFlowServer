@@ -100,8 +100,8 @@ Total: 73 milestones, 275 micropasos.
 
 | ID | Micropaso | Marca | Estado | Fecha | Commit | Notas |
 |---|---|---|---|---|---|---|
-| 0.1.1 | Crear el tag v1-legacy sobre master (commit 79d1e53). | 👤 | Pendiente |  |  |  |
-| 0.1.2 | Crear la rama v2 desde master en el worktree stackflow-v2. |  | Terminado | 15.10.2026 |  | worktree stackflow-v2 |
+| 0.1.1 | Crear el tag v1-legacy sobre el último commit de master (53ef018, que incluye el merge de origin/main). | 👤 | Pendiente |  |  |  |
+| 0.1.2 | Crear la rama v2 desde master y cambiar a ella en la carpeta stackflow. |  | Terminado | 15.10.2026 |  | carpeta stackflow |
 | 0.1.3 | En v2: mover la documentación v1 a docs/v1/ (API.md, DATABASE_SCHEMA.md, SETUP_GUIDE.md, Setup Guide.docx,… |  | Pendiente |  |  |  |
 | 0.1.4 | Crear .gitignore (target/, nbproject/private/, *.class, *.log, .idea/) y quitar target/ del índice (git rm… |  | Pendiente |  |  |  |
 | 0.1.5 | README v2 provisional: qué es, cómo compilar y enlace a docs/v2/. |  | Pendiente |  |  |  |
@@ -123,7 +123,7 @@ Total: 73 milestones, 275 micropasos.
 
 | ID | Micropaso | Marca | Estado | Fecha | Commit | Notas |
 |---|---|---|---|---|---|---|
-| 0.3.1 | Abrir stackflow-v2 en NetBeans como proyecto padre y comprobar los módulos. | 👤 | Pendiente |  |  |  |
+| 0.3.1 | Abrir stackflow (rama v2) en NetBeans como proyecto padre y comprobar los módulos. | 👤 | Pendiente |  |  |  |
 | 0.3.2 | Registrar WildFly 36 en NetBeans (puerto HTTP 8090). | 👤 | Pendiente |  |  |  |
 | 0.3.3 | Comprobar o crear los DataSources java:/jdbc/StackflowDS (stackflowdb) y java:/jdbc/StackflowTestDS (stackf… | 👤 | Pendiente |  |  |  |
 | 0.3.4 | Desplegar el WAR vacío. |  | Pendiente |  |  |  |
