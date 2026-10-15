@@ -8,8 +8,8 @@ Estado de todos los milestones y micropasos del [ROADMAP.md](ROADMAP.md). Lo act
 
 | Campo | Valor |
 |---|---|
-| Siguiente micropaso | **0.2.6** |
-| Último terminado | 0.2.5 |
+| Siguiente micropaso | **0.3.1** |
+| Último terminado | 0.2.6 |
 | Última actualización | 16.10.2026 |
 
 ## Resumen por milestone
@@ -17,7 +17,7 @@ Estado de todos los milestones y micropasos del [ROADMAP.md](ROADMAP.md). Lo act
 | Grupo | Milestone | Título | Pasos | Estado |
 |---|---|---|---|---|
 | 0 | 0.1 | Rama v2 y retirada del código v1 | 5/5 | Terminado |
-| 0 | 0.2 | Proyecto Maven multi-módulo | 5/6 | En proceso |
+| 0 | 0.2 | Proyecto Maven multi-módulo | 6/6 | Terminado |
 | 0 | 0.3 | NetBeans y WildFly | 0/5 | Pendiente |
 | 0 | 0.4 | Guardarraíles | 0/4 | Pendiente |
 | 0 | 0.5 | Documentación de trabajo | 4/4 | Terminado |
@@ -110,7 +110,7 @@ Total: 68 milestones, 265 micropasos.
 | 0.2.3 | Módulo stackflow-adapter-jakarta (jar, META-INF/beans.xml). |  | Terminado | 16.10.2026 | [0.2.3] | beans.xml annotated |
 | 0.2.4 | Módulo stackflow-host-wildfly (war, finalName stackflow, jboss-web.xml con context root /stackflow, WEB-INF… |  | Terminado | 16.10.2026 | [0.2.4] | stackflow.war (8 KB) |
 | 0.2.5 | Perfiles pegasus y modelforge declarados en el padre (vacíos de momento). |  | Terminado | 16.10.2026 | [0.2.5] | pegasus inactivo (merlab-rag no instalado) |
-| 0.2.6 | Regla documentada en el POM padre: los demás módulos (rpn, registry, runtime, jobs, pipeline, storage, secu… |  | Pendiente |  |  |  |
+| 0.2.6 | Regla documentada en el POM padre: los demás módulos (rpn, registry, runtime, jobs, pipeline, storage, secu… |  | Terminado | 16.10.2026 | [0.2.6] | tabla de 19 módulos en el POM |
 
 ### 0.3 · NetBeans y WildFly
 

@@ -2,9 +2,30 @@
 <!--
   StackFlowServer v2 - parent POM.
 
-  Modules are added in the roadmap step that first needs them (docs/v2/ROADMAP.md, step 0.2.6):
-  domain, ports, api-contract, adapter-jakarta and host-wildfly come first (milestone 0.2);
-  rpn, registry, runtime, jobs, pipeline, storage, security, application and the engine adapters later.
+  RULE (docs/v2/ROADMAP.md, step 0.2.6): a module is added to <modules> in the roadmap step
+  that first needs it, never earlier. No empty modules.
+
+  Module                          Created in step   Style (DA-001)
+  ==============================  ================  =======================================
+  stackflow-domain                0.2.2  (done)     pure Java
+  stackflow-ports                 0.2.2  (done)     pure Java
+  stackflow-api-contract          0.2.2  (done)     DTO records + jakarta.validation
+  stackflow-adapter-jakarta       0.2.3  (done)     Jakarta (resources, mappers, filters)
+  stackflow-host-wildfly          0.2.4  (done)     WAR
+  stackflow-architecture-tests    0.4.1             ArchUnit tests only
+  stackflow-runtime               B4.1              EJB (MonitorServiceBean, ResourceManagerBean)
+  stackflow-storage               C1.1              EJB + JPA (entities, *DaoBean)
+  stackflow-security              C2.2              EJB
+  stackflow-application           C4.2              EJB
+  stackflow-jobs                  D3.1              EJB (Orchestrator, Worker)
+  stackflow-adapter-merlabcore    E1.2              pure Java + CDI producer
+  stackflow-rpn                   E2.1              pure Java + RPNStackServiceBean
+  stackflow-registry              E3.1              EJB (OperationRegistryBean)
+  stackflow-pipeline              G1.1              EJB + pure Java engine
+  stackflow-adapter-modelforge    H3.3              profile modelforge
+  stackflow-adapter-pegasus       J2.2              profile pegasus
+  stackflow-plugin-api            L1.1              pure Java SPI
+  stackflow-adapter-merlynix      N2.1              after release 2.0
 -->
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"

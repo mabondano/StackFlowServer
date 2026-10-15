@@ -184,3 +184,12 @@ Para un **Spike**, "Qué se hizo" se sustituye por **Pregunta**, **Opciones** y 
 - **Decisiones:** la activación por fichero no admite propiedades del proyecto, así que la versión de merlab-rag va escrita en la ruta; si cambia, se actualiza ahí (está comentado en el POM).
 - **Commit:** `[0.2.5]`, con push de `v2`
 - **Siguiente:** 0.2.6 Regla de módulos bajo demanda en el POM padre → esperando ROGER
+
+### [0.2.6] Regla de módulos bajo demanda · 16.10.2026
+- **Agente:** Claude
+- **Qué se hizo:** comentario en la cabecera del POM padre con la regla (un módulo entra en `<modules>` en el paso que lo necesita; nunca módulos vacíos) y una tabla con los 19 módulos de v2: paso de creación y estilo (DA-001). Los pasos se contrastaron con el ROADMAP (14 de 14 coinciden).
+- **Clases / archivos:** `pom.xml`
+- **Verificación:** `mvn -P!pegasus,!modelforge clean verify` → BUILD SUCCESS. Primer intento fallido: una línea `----` dentro del comentario XML no es válida (`--` está prohibido en comentarios XML); se cambió por `====`.
+- **Decisiones:** —
+- **Commit:** `[0.2.6]`, con push de `v2`
+- **Siguiente:** 0.3.1 👤 Abrir el proyecto en NetBeans → esperando ROGER (milestone 0.2 terminado)
