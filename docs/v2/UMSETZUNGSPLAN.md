@@ -106,3 +106,18 @@ Para un **Spike**, "Qué se hizo" se sustituye por **Pregunta**, **Opciones** y 
 - **Decisiones:** la carpeta `Neuer Ordner` (vacía y fuera de git) se deja como está; `target/` se trata en 0.1.4.
 - **Commit:** `[0.1.3]`
 - **Siguiente:** 0.1.4 `.gitignore` y sacar `target/` del índice → esperando ROGER
+
+### [Decisión DA-003] Sin pendientes: cada ROGER cierra el paso con push · 15.10.2026
+- **Agente:** Claude
+- **Pregunta:** el usuario se pierde si un paso termina con "pendiente de aprobación".
+- **Decisión:** cada micropaso termina cerrado del todo: commit **y push de `v2`** (`git -c http.sslBackend=schannel push origin v2`, solo fast-forward). Lo que no se pueda terminar queda `Bloqueado`. Actualizados README, AGENTS y DECISIONES.
+- **Commit:** `[0.1.4]` (junto con el paso)
+
+### [0.1.4] .gitignore y target/ fuera de git · 15.10.2026
+- **Agente:** Claude
+- **Qué se hizo:** `.gitignore` nuevo (`target/`, NetBeans privado, `*.class`, logs, IDEs, `*.local.properties`, `.env`). `git rm -r --cached target`: estaban versionados 4 archivos de `target/`. La carpeta sigue en disco, ahora ignorada.
+- **Clases / archivos:** `.gitignore`
+- **Verificación:** `git ls-files target` → 0
+- **Decisiones:** también se sube `master` (fast-forward hasta `53ef018`, el merge ya hecho) para que el tag `v1-legacy` apunte a un commit de una rama remota.
+- **Commit:** `[0.1.4]`, con push de `v2` y `master`
+- **Siguiente:** 0.1.5 README v2 provisional → esperando ROGER

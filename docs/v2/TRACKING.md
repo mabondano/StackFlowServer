@@ -8,15 +8,15 @@ Estado de todos los milestones y micropasos del [ROADMAP.md](ROADMAP.md). Lo act
 
 | Campo | Valor |
 |---|---|
-| Siguiente micropaso | **0.1.4** |
-| Último terminado | 0.1.3 |
+| Siguiente micropaso | **0.1.5** |
+| Último terminado | 0.1.4 |
 | Última actualización | 15.10.2026 |
 
 ## Resumen por milestone
 
 | Grupo | Milestone | Título | Pasos | Estado |
 |---|---|---|---|---|
-| 0 | 0.1 | Rama v2 y retirada del código v1 | 3/5 | En proceso |
+| 0 | 0.1 | Rama v2 y retirada del código v1 | 4/5 | En proceso |
 | 0 | 0.2 | Proyecto Maven multi-módulo | 0/6 | Pendiente |
 | 0 | 0.3 | NetBeans y WildFly | 0/5 | Pendiente |
 | 0 | 0.4 | Guardarraíles | 0/4 | Pendiente |
@@ -98,7 +98,7 @@ Total: 68 milestones, 265 micropasos.
 | 0.1.1 | Crear el tag v1-legacy sobre el último commit de master (53ef018). | 👤 | Terminado | 15.10.2026 | tag | v1-legacy → 53ef018; subido a GitHub |
 | 0.1.2 | Crear la rama v2 desde master y cambiar a ella en la carpeta stackflow. |  | Terminado | 15.10.2026 |  | carpeta stackflow |
 | 0.1.3 | En v2: mover la documentación v1 a docs/v1/ (API.md, DATABASE_SCHEMA.md, SETUP_GUIDE.md, Setup Guide.docx,… |  | Terminado | 15.10.2026 | [0.1.3] | doc v1 en docs/v1; src, pom y nb-configuration v1 retirados |
-| 0.1.4 | .gitignore (target/, nbproject/private/, *.class, *.log) y git rm -r --cached target. |  | Pendiente |  |  |  |
+| 0.1.4 | .gitignore (target/, nbproject/private/, *.class, *.log) y git rm -r --cached target. |  | Terminado | 15.10.2026 | [0.1.4] | .gitignore; 4 archivos de target/ fuera del índice |
 | 0.1.5 | README v2 provisional (qué es, cómo compilar, enlace a docs/v2/). |  | Pendiente |  |  |  |
 
 ### 0.2 · Proyecto Maven multi-módulo

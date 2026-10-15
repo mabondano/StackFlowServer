@@ -33,7 +33,7 @@ El trabajo avanza **un micropaso cada vez**. El usuario controla el ritmo con me
 5. **Actualizar**:
    - TRACKING: estado `Terminado`, fecha, commit; en "Resumen por milestone", el contador y el estado; en "Paso actual", el siguiente ID;
    - UMSETZUNGSPLAN: una entrada nueva con la plantilla.
-6. **Commit local** con el mensaje `[<ID>] <resumen>`. **Sin push**, salvo que el usuario lo pida.
+6. **Commit** con el mensaje `[<ID>] <resumen>` y **push de la rama `v2`** (`git -c http.sslBackend=schannel push origin v2`; solo fast-forward, nunca `--force`).
 7. **Detenerse** y responder con este formato:
 
    ```
@@ -43,6 +43,8 @@ El trabajo avanza **un micropaso cada vez**. El usuario controla el ritmo con me
    Siguiente: <ID> <título corto>
    Escribe ROGER para continuar.
    ```
+
+   **Sin pendientes:** cada micropaso termina cerrado del todo (incluido el push). Si algo no se puede terminar, el paso queda `Bloqueado` con el motivo, dicho de forma explícita. Nunca "queda pendiente de aprobación" entre un ROGER y el siguiente.
 
 ### Pasos especiales
 
@@ -56,7 +58,7 @@ El trabajo avanza **un micropaso cada vez**. El usuario controla el ritmo con me
 2. No tocar `master`, el tag `v1-legacy` ni el código v1.
 3. No copiar código del proyecto de la empresa (`genai-java-rest-api`); solo se usa la forma de sus endpoints.
 4. Sin secretos en el código ni en git.
-5. Sin push ni tags remotos sin aprobación del usuario.
+5. Push de `v2` en cada micropaso (DA-003). Nunca `--force`, nunca reescribir historia publicada, nunca tocar `master` ni tags existentes.
 6. Si el diseño y el roadmap no coinciden, manda el diseño (en su orden de precedencia). Si falta algo, se anota y se pregunta.
 7. Estilo DA-001: EJB (`XServiceLocal`/`XServiceBean`, `XDaoLocal`/`XDaoBean`) para lo que toca BD, seguridad, transacciones, hilos, timers o mensajes; Java puro para lo que solo calcula. Además, las reglas R1–R8 de DA-002 en cada micropaso.
 8. Las decisiones de diseño solo se toman cuando el usuario escribe **ROGER**; una explicación o una pregunta no es una decisión.

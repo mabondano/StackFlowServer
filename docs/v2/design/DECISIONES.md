@@ -6,6 +6,7 @@ Cada decisión se registra solo cuando el usuario la confirma con **ROGER**. Las
 |---|---|---|---|
 | DA-001 | 15.10.2026 | Estilo del núcleo: **Opción C (mixta)**: EJB para los servicios, Java puro para el motor de cálculo | Aprobada (ROGER C) |
 | DA-002 | 15.10.2026 | **Reglas R1–R8** de código que mantienen barato un futuro host Spring | Aprobada (ROGER) |
+| DA-003 | 15.10.2026 | **Cada ROGER cierra el paso del todo, incluido el push de `v2`**; sin pendientes entre pasos | Indicada por el usuario |
 
 ---
 
@@ -61,4 +62,17 @@ Los EJB crean los objetos del motor con `new`. **No hay** una clase central de "
 | R8 | La lógica de cada `ExceptionMapper` y filtro vive en una clase Java pura (p. ej. `ErrorDTOFactory`). | revisión |
 
 **Consecuencias.** ✅ Un posible host Spring reescribiría solo los beans y la configuración (con Jersey, ni siquiera los resources). ❌ Unas pocas clases auxiliares más (factorías, producers de adaptadores).
+
+---
+
+## DA-003 · Sin pendientes: cada ROGER cierra el paso, incluido el push
+
+**Contexto.** Al terminar 0.1.1 quedó "push del tag pendiente de aprobación", y el usuario no sabía qué cubría el siguiente ROGER. Los milestones existen precisamente para que el estado sea claro.
+
+**Decisión.** Cada micropaso termina **cerrado del todo**: implementación, verificación, TRACKING, UMSETZUNGSPLAN, commit y **push de la rama `v2`**. No se deja nada "pendiente de aprobación" entre un ROGER y el siguiente. Si algo no se puede terminar, el paso queda **Bloqueado**, con el motivo dicho explícitamente.
+
+**Detalles técnicos.**
+- Push: `git -c http.sslBackend=schannel push origin v2`. En este PC, Git Bash con OpenSSL falla con "SSL certificate problem"; schannel usa el almacén de certificados de Windows.
+- Solo fast-forward: nunca `--force`, nunca reescribir historia publicada.
+- `master` y los tags existentes no se tocan.
 

@@ -10,7 +10,8 @@ Este repositorio, en la rama `v2`, es la implementación nueva de **StackFlowSer
 
 ## Cómo trabajar
 
-- **Un micropaso por turno.** Implementa, verifica, actualiza TRACKING y UMSETZUNGSPLAN, haz un commit local `[<ID>] <resumen>` y **detente**. Continúa solo cuando el usuario escriba `ROGER` (o `ROGER <ID>`).
+- **Un micropaso por turno.** Implementa, verifica, actualiza TRACKING y UMSETZUNGSPLAN, haz commit `[<ID>] <resumen>`, **push de `v2`** (`git -c http.sslBackend=schannel push origin v2`) y **detente**. Continúa solo cuando el usuario escriba `ROGER` (o `ROGER <ID>`).
+- **Sin pendientes** (DA-003): cada paso termina cerrado del todo. Lo que no se pueda terminar queda `Bloqueado`, dicho explícitamente.
 - Verificación mínima: `mvn -q -P!pegasus,!modelforge clean verify` en verde. Desde J2, también `-Ppegasus`; desde H3, también `-Pmodelforge`.
 - Estilo (DA-001): EJB para servicios y DAOs (`XServiceLocal`/`XServiceBean`, `XDaoLocal`/`XDaoBean`); Java puro para el motor (dominio, `StackSession`, `PipelineRunner`, importadores).
 - Reglas R1–R8 (DA-002, `docs/v2/design/DECISIONES.md`): beans delgados, adaptadores de motores sin EJB, datos solo por `XDaoLocal`, ITs HTTP de caja negra, config solo por `ConfigProvider`, logging neutro en el código puro, mappers con lógica en clases puras.
@@ -24,7 +25,7 @@ Este repositorio, en la rama `v2`, es la implementación nueva de **StackFlowSer
 - Tocar la rama `master`, el tag `v1-legacy` o el código v1.
 - Copiar código de `genai-java-rest-api` (proyecto de la empresa).
 - Guardar secretos en el código o en git.
-- Hacer push o crear tags remotos sin aprobación.
+- `push --force`, reescribir historia publicada, o tocar `master` y tags existentes.
 
 ## Datos del entorno
 

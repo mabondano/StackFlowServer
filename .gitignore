@@ -1,0 +1,22 @@
+# Maven build output
+target/
+
+# NetBeans
+nbproject/private/
+nbactions*.xml
+
+# Compiled files and logs
+*.class
+*.log
+hs_err_pid*
+
+# Other IDEs and OS files
+.idea/
+*.iml
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Local configuration and secrets (never commit)
+*.local.properties
+.env
