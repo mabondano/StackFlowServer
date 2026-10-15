@@ -32,5 +32,9 @@ Este repositorio, en la rama `v2`, es la implementación nueva de **StackFlowSer
 - Java 17 · Jakarta EE 10 · WildFly 36 (`C:\merLab\projects\StackFlowServer\wildfly-36.0.1.Final`) · HTTP 8090
 - URL base: `http://localhost:8090/stackflow/api/v1`
 - MariaDB `localhost:3307`, BD `stackflowdb`, DataSource `java:/jdbc/StackflowDS`
+- **Certificados en este PC:** algo intercepta TLS y ni Git (OpenSSL) ni Maven (truststore de Java) reconocen los certificados. Usar siempre el almacén de Windows:
+  - git: `git -c http.sslBackend=schannel push|fetch …`
+  - Maven: `MAVEN_OPTS="-Djavax.net.ssl.trustStoreType=Windows-ROOT" mvn …` (PowerShell: `$env:MAVEN_OPTS="-Djavax.net.ssl.trustStoreType=Windows-ROOT"`)
+  - No se guarda en el repo (`.mvn/jvm.config` rompería el build en macOS/Linux).
 - IDE del usuario: NetBeans (proyecto Maven multi-módulo)
 - Idioma con el usuario: español. Diagramas y código: inglés.

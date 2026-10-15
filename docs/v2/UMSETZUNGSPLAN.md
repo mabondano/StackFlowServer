@@ -130,3 +130,12 @@ Para un **Spike**, "Qué se hizo" se sustituye por **Pregunta**, **Opciones** y 
 - **Decisiones:** —
 - **Commit:** `[0.1.5]`, con push de `v2`
 - **Siguiente:** 0.2.1 POM padre `stackflow-parent` → esperando ROGER (milestone 0.1 terminado)
+
+### [0.2.1] POM padre stackflow-parent · 15.10.2026
+- **Agente:** Claude
+- **Qué se hizo:** `pom.xml` padre `com.merlab:stackflow-parent:2.0.0-SNAPSHOT` (`pom`): Java 17 (`release`), UTF-8; `dependencyManagement` (jakartaee-api 10.0.0 provided, junit-bom 5.11.4, mockito 5.14.2, archunit 1.3.0); `pluginManagement` (compiler 3.13.0, surefire 3.5.3 con `*Test`, failsafe 3.5.3 con `*IT`, war 3.4.0, enforcer 3.5.0); enforcer activo: Java ≥ 17 y Maven ≥ 3.9. Comentario con la regla 0.2.6 (módulos bajo demanda).
+- **Clases / archivos:** `pom.xml`
+- **Verificación:** `mvn -q validate` → OK (con el almacén de certificados de Windows, ver Decisiones).
+- **Decisiones:** Maven, igual que Git, falla en este PC con "PKIX path building failed" (algo intercepta TLS). Solución sin tocar el sistema ni el repo: `MAVEN_OPTS=-Djavax.net.ssl.trustStoreType=Windows-ROOT` en cada comando (documentado en AGENTS.md). Para NetBeans se añade esa opción en el paso 0.3.1. Maven corre con JDK 23 y compila con `--release 17`.
+- **Commit:** `[0.2.1]`, con push de `v2`
+- **Siguiente:** 0.2.2 Módulos `stackflow-domain`, `stackflow-ports` y `stackflow-api-contract` → esperando ROGER

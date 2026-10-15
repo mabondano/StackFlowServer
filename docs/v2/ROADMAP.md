@@ -108,7 +108,7 @@ Formato de cada milestone: **Objetivo**, **Depende de**, **Diseño**, tabla de m
 
 | ID | Micropaso | Clases / archivos | Verificación |
 |---|---|---|---|
-| 0.3.1 | 👤 Abrir `stackflow` (rama `v2`) en NetBeans como proyecto padre; `nb-configuration.xml` en `host-wildfly` con el hint de WildFly. | `nb-configuration.xml` | NetBeans muestra los módulos |
+| 0.3.1 | 👤 Abrir `stackflow` (rama `v2`) en NetBeans como proyecto padre; `nb-configuration.xml` en `host-wildfly` con el hint de WildFly. En NetBeans, *Tools → Options → Java → Maven → Global Execution Options*: `-Djavax.net.ssl.trustStoreType=Windows-ROOT` (problema de certificados de este PC; ver AGENTS.md). | `nb-configuration.xml` | NetBeans muestra los módulos y descarga dependencias |
 | 0.3.2 | 👤 Registrar WildFly 36 en NetBeans (8090) y decidir `standalone.xml` o `standalone-microprofile.xml` (se recomienda microprofile por OpenAPI y métricas). | Umsetzungsplan | servidor arranca |
 | 0.3.3 | 👤 DataSources `StackflowDS` y `StackflowTestDS` con un script CLI versionado. | `scripts/wildfly/datasources.cli` | `test-connection-in-pool` OK |
 | 0.3.4 | Desplegar el WAR vacío. | — | `GET /stackflow/` → 200 |
