@@ -19,6 +19,12 @@
     <name>StackFlowServer</name>
     <description>Runtime of the MerLab platform: MerLabCore RPN stack, signal processing and ML as a Jakarta EE REST server.</description>
 
+    <modules>
+        <module>stackflow-domain</module>
+        <module>stackflow-ports</module>
+        <module>stackflow-api-contract</module>
+    </modules>
+
     <licenses>
         <license>
             <name>Apache License, Version 2.0</name>
@@ -33,6 +39,7 @@
 
         <!-- Platform -->
         <jakartaee.version>10.0.0</jakartaee.version>
+        <jakarta.validation.version>3.0.2</jakarta.validation.version>
 
         <!-- Test libraries -->
         <junit.version>5.11.4</junit.version>
@@ -53,6 +60,13 @@
                 <groupId>jakarta.platform</groupId>
                 <artifactId>jakarta.jakartaee-api</artifactId>
                 <version>${jakartaee.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <!-- Bean Validation 3.0 = the version in Jakarta EE 10 (WildFly provides it) -->
+                <groupId>jakarta.validation</groupId>
+                <artifactId>jakarta.validation-api</artifactId>
+                <version>${jakarta.validation.version}</version>
                 <scope>provided</scope>
             </dependency>
             <dependency>

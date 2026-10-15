@@ -148,3 +148,12 @@ Para un **Spike**, "Qué se hizo" se sustituye por **Pregunta**, **Opciones** y 
 - **Commit:** `[env]`, con push de `v2`
 - **Siguiente:** 0.2.2 Módulos `stackflow-domain`, `stackflow-ports` y `stackflow-api-contract` → esperando ROGER
 
+
+### [0.2.2] Módulos domain, ports y api-contract · 15.10.2026
+- **Agente:** Claude
+- **Qué se hizo:** tres módulos jar con su `package-info.java` (cabecera Apache 2.0): `stackflow-domain` (`com.merlab.stackflow.domain`, Java puro), `stackflow-ports` (`com.merlab.stackflow.ports`, Java puro, depende de domain) y `stackflow-api-contract` (`com.merlab.stackflow.contract`, solo `jakarta.validation`). El padre declara los módulos y gestiona `jakarta.validation-api` 3.0.2 (`provided`, la de Jakarta EE 10).
+- **Clases / archivos:** `pom.xml`, `stackflow-domain/**`, `stackflow-ports/**`, `stackflow-api-contract/**`
+- **Verificación:** `mvn clean verify` (Maven 3.9.16) → BUILD SUCCESS, 3 jars.
+- **Decisiones:** paquete del contrato `com.merlab.stackflow.contract` (subpaquetes `contract.common`, `contract.job`… según el grupo A). Los perfiles `pegasus`/`modelforge` aún no existen (0.2.5), así que la verificación se hace sin `-P!…`.
+- **Commit:** `[0.2.2]`, con push de `v2`
+- **Siguiente:** 0.2.3 Módulo `stackflow-adapter-jakarta` → esperando ROGER
