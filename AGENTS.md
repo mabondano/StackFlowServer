@@ -10,7 +10,7 @@ Este repositorio, en la rama `v2`, es la implementación nueva de **StackFlowSer
 
 ## Cómo trabajar
 
-- **Un micropaso por turno.** Implementa, verifica, actualiza TRACKING y UMSETZUNGSPLAN, haz commit `[<ID>] <resumen>`, **push de `v2`** (`git -c http.sslBackend=schannel push origin v2`) y **detente**. Continúa solo cuando el usuario escriba `ROGER` (o `ROGER <ID>`).
+- **Un micropaso por turno.** Implementa, verifica, actualiza TRACKING y UMSETZUNGSPLAN, haz commit `[<ID>] <resumen>`, **push de `v2`** (`git push origin v2`) y **detente**. Continúa solo cuando el usuario escriba `ROGER` (o `ROGER <ID>`).
 - **Sin pendientes** (DA-003): cada paso termina cerrado del todo. Lo que no se pueda terminar queda `Bloqueado`, dicho explícitamente.
 - Verificación mínima: `mvn -q -P!pegasus,!modelforge clean verify` en verde. Desde J2, también `-Ppegasus`; desde H3, también `-Pmodelforge`.
 - Estilo (DA-001): EJB para servicios y DAOs (`XServiceLocal`/`XServiceBean`, `XDaoLocal`/`XDaoBean`); Java puro para el motor (dominio, `StackSession`, `PipelineRunner`, importadores).
@@ -32,9 +32,10 @@ Este repositorio, en la rama `v2`, es la implementación nueva de **StackFlowSer
 - Java 17 · Jakarta EE 10 · WildFly 36 (`C:\merLab\projects\StackFlowServer\wildfly-36.0.1.Final`) · HTTP 8090
 - URL base: `http://localhost:8090/stackflow/api/v1`
 - MariaDB `localhost:3307`, BD `stackflowdb`, DataSource `java:/jdbc/StackflowDS`
-- **Certificados en este PC:** algo intercepta TLS y ni Git (OpenSSL) ni Maven (truststore de Java) reconocen los certificados. Usar siempre el almacén de Windows:
-  - git: `git -c http.sslBackend=schannel push|fetch …`
-  - Maven: `MAVEN_OPTS="-Djavax.net.ssl.trustStoreType=Windows-ROOT" mvn …` (PowerShell: `$env:MAVEN_OPTS="-Djavax.net.ssl.trustStoreType=Windows-ROOT"`)
-  - No se guarda en el repo (`.mvn/jvm.config` rompería el build en macOS/Linux).
+- **Maven:** `C:\apache-maven-3.9.16` (en el PATH todavía aparece 3.9.10; ambos sirven).
+- **Certificados en este PC (resuelto de forma permanente, 15.10.2026):** algo intercepta TLS, así que Git y Maven usan el almacén de certificados de Windows:
+  - variable de usuario `MAVEN_OPTS=-Djavax.net.ssl.trustStoreType=Windows-ROOT`;
+  - `git config --global http.sslBackend schannel`.
+  Los comandos normales (`mvn …`, `git push`) funcionan sin opciones extra. Un proceso abierto **antes** del cambio no ve la variable: hay que reiniciarlo o añadir `-Djavax.net.ssl.trustStoreType=Windows-ROOT` a mano.
 - IDE del usuario: NetBeans (proyecto Maven multi-módulo)
 - Idioma con el usuario: español. Diagramas y código: inglés.

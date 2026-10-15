@@ -33,7 +33,7 @@ El trabajo avanza **un micropaso cada vez**. El usuario controla el ritmo con me
 5. **Actualizar**:
    - TRACKING: estado `Terminado`, fecha, commit; en "Resumen por milestone", el contador y el estado; en "Paso actual", el siguiente ID;
    - UMSETZUNGSPLAN: una entrada nueva con la plantilla.
-6. **Commit** con el mensaje `[<ID>] <resumen>` y **push de la rama `v2`** (`git -c http.sslBackend=schannel push origin v2`; solo fast-forward, nunca `--force`).
+6. **Commit** con el mensaje `[<ID>] <resumen>` y **push de la rama `v2`** (`git push origin v2`; solo fast-forward, nunca `--force`).
 7. **Detenerse** y responder con este formato:
 
    ```

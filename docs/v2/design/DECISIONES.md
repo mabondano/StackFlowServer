@@ -72,7 +72,7 @@ Los EJB crean los objetos del motor con `new`. **No hay** una clase central de "
 **Decisión.** Cada micropaso termina **cerrado del todo**: implementación, verificación, TRACKING, UMSETZUNGSPLAN, commit y **push de la rama `v2`**. No se deja nada "pendiente de aprobación" entre un ROGER y el siguiente. Si algo no se puede terminar, el paso queda **Bloqueado**, con el motivo dicho explícitamente.
 
 **Detalles técnicos.**
-- Push: `git -c http.sslBackend=schannel push origin v2`. En este PC, Git Bash con OpenSSL falla con "SSL certificate problem"; schannel usa el almacén de certificados de Windows.
+- Push: `git push origin v2`. En este PC, Git con OpenSSL fallaba con "SSL certificate problem"; desde el 15.10.2026 git usa schannel (almacén de Windows) de forma global, y Maven usa `MAVEN_OPTS=-Djavax.net.ssl.trustStoreType=Windows-ROOT` (variable de usuario).
 - Solo fast-forward: nunca `--force`, nunca reescribir historia publicada.
 - `master` y los tags existentes no se tocan.
 

@@ -139,3 +139,12 @@ Para un **Spike**, "Qué se hizo" se sustituye por **Pregunta**, **Opciones** y 
 - **Decisiones:** Maven, igual que Git, falla en este PC con "PKIX path building failed" (algo intercepta TLS). Solución sin tocar el sistema ni el repo: `MAVEN_OPTS=-Djavax.net.ssl.trustStoreType=Windows-ROOT` en cada comando (documentado en AGENTS.md). Para NetBeans se añade esa opción en el paso 0.3.1. Maven corre con JDK 23 y compila con `--release 17`.
 - **Commit:** `[0.2.1]`, con push de `v2`
 - **Siguiente:** 0.2.2 Módulos `stackflow-domain`, `stackflow-ports` y `stackflow-api-contract` → esperando ROGER
+
+### [Entorno] Certificados de Git y Maven resueltos de forma permanente · 15.10.2026
+- **Agente:** Claude
+- **Qué se hizo:** con permiso del usuario: variable de usuario `MAVEN_OPTS=-Djavax.net.ssl.trustStoreType=Windows-ROOT` y `git config --global http.sslBackend schannel`. Las dos herramientas usan ahora el almacén de certificados de Windows. Maven de referencia: `C:\apache-maven-3.9.16`.
+- **Verificación:** Maven 3.9.16 descarga `mockito-core` y `mvn -q validate` pasa sin opciones extra; `git fetch` funciona sin `-c`.
+- **Decisiones:** nada se guarda en el repo (`.mvn/jvm.config` rompería macOS/Linux). En NetBeans solo hay que elegir Maven Home 3.9.16 (paso 0.3.1).
+- **Commit:** `[env]`, con push de `v2`
+- **Siguiente:** 0.2.2 Módulos `stackflow-domain`, `stackflow-ports` y `stackflow-api-contract` → esperando ROGER
+
