@@ -24,6 +24,7 @@
         <module>stackflow-ports</module>
         <module>stackflow-api-contract</module>
         <module>stackflow-adapter-jakarta</module>
+        <module>stackflow-host-wildfly</module>
     </modules>
 
     <licenses>

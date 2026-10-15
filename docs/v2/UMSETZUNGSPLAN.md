@@ -166,3 +166,12 @@ Para un **Spike**, "Qué se hizo" se sustituye por **Pregunta**, **Opciones** y 
 - **Decisiones:** las dependencias de los módulos de aplicación (jobs, pipeline, security…) se añaden cuando existan.
 - **Commit:** `[0.2.3]`, con push de `v2`
 - **Siguiente:** 0.2.4 Módulo `stackflow-host-wildfly` (WAR) → esperando ROGER
+
+### [0.2.4] Módulo stackflow-host-wildfly (WAR) · 16.10.2026
+- **Agente:** Claude
+- **Qué se hizo:** módulo `war` `stackflow-host-wildfly` (`com.merlab.stackflow.host`), `finalName` `stackflow`, depende de `adapter-jakarta`. `WEB-INF/jboss-web.xml` (context root `/stackflow`), `WEB-INF/beans.xml` (CDI 4.0, `annotated`), `index.html` mínimo, sin `web.xml` (`failOnMissingWebXml=false`).
+- **Clases / archivos:** `stackflow-host-wildfly/pom.xml`, `src/main/webapp/WEB-INF/jboss-web.xml`, `WEB-INF/beans.xml`, `index.html`, `package-info.java`; módulo añadido al padre
+- **Verificación:** `mvn clean verify` → BUILD SUCCESS (5 módulos + padre). `stackflow.war` (8 KB) contiene `jboss-web.xml`, `beans.xml`, `index.html` y en `WEB-INF/lib` los jars de adapter-jakarta, api-contract y domain. Las APIs de Jakarta (provided) no van dentro, como debe ser.
+- **Decisiones:** `stackflow-ports` todavía no entra en el WAR (nadie lo usa aún); llegará con el primer adaptador (E1).
+- **Commit:** `[0.2.4]`, con push de `v2`
+- **Siguiente:** 0.2.5 Perfiles Maven `pegasus` y `modelforge` → esperando ROGER
