@@ -126,9 +126,9 @@ Total: 68 milestones, 265 micropasos.
 
 | ID | Micropaso | Marca | Estado | Fecha | Commit | Notas |
 |---|---|---|---|---|---|---|
-| 0.4.1 | Módulo de test stackflow-architecture-tests con ArchUnit: domain/ports sin jakarta.*; solo adapter-merlabco… |  | Pendiente |  |  |  |
+| 0.4.1 | Módulo de test stackflow-architecture-tests con ArchUnit: domain/ports sin jakarta.* (R1); solo adapter-mer… |  | Pendiente |  |  |  |
 | 0.4.2 | Convención *Test (surefire) / *IT (failsafe, perfil it). |  | Pendiente |  |  |  |
-| 0.4.3 | Base Arquillian (WildFly managed, jbossHome por propiedad) + AbstractStackflowIT + IndexIT. |  | Pendiente |  |  |  |
+| 0.4.3 | Base Arquillian (WildFly managed, jbossHome por propiedad) + AbstractStackflowIT con cliente HTTP de caja n… |  | Pendiente |  |  |  |
 | 0.4.4 | .editorconfig y cabecera de licencia Apache 2.0. |  | Pendiente |  |  |  |
 
 ### 0.5 · Documentación de trabajo

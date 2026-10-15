@@ -58,5 +58,5 @@ El trabajo avanza **un micropaso cada vez**. El usuario controla el ritmo con me
 4. Sin secretos en el código ni en git.
 5. Sin push ni tags remotos sin aprobación del usuario.
 6. Si el diseño y el roadmap no coinciden, manda el diseño (en su orden de precedencia). Si falta algo, se anota y se pregunta.
-7. Estilo DA-001: EJB (`XServiceLocal`/`XServiceBean`, `XDaoLocal`/`XDaoBean`) para lo que toca BD, seguridad, transacciones, hilos, timers o mensajes; Java puro para lo que solo calcula.
+7. Estilo DA-001: EJB (`XServiceLocal`/`XServiceBean`, `XDaoLocal`/`XDaoBean`) para lo que toca BD, seguridad, transacciones, hilos, timers o mensajes; Java puro para lo que solo calcula. Además, las reglas R1–R8 de DA-002 en cada micropaso.
 8. Las decisiones de diseño solo se toman cuando el usuario escribe **ROGER**; una explicación o una pregunta no es una decisión.

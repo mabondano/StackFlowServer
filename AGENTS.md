@@ -13,6 +13,7 @@ Este repositorio, en la rama `v2`, es la implementación nueva de **StackFlowSer
 - **Un micropaso por turno.** Implementa, verifica, actualiza TRACKING y UMSETZUNGSPLAN, haz un commit local `[<ID>] <resumen>` y **detente**. Continúa solo cuando el usuario escriba `ROGER` (o `ROGER <ID>`).
 - Verificación mínima: `mvn -q -P!pegasus,!modelforge clean verify` en verde. Desde J2, también `-Ppegasus`; desde H3, también `-Pmodelforge`.
 - Estilo (DA-001): EJB para servicios y DAOs (`XServiceLocal`/`XServiceBean`, `XDaoLocal`/`XDaoBean`); Java puro para el motor (dominio, `StackSession`, `PipelineRunner`, importadores).
+- Reglas R1–R8 (DA-002, `docs/v2/design/DECISIONES.md`): beans delgados, adaptadores de motores sin EJB, datos solo por `XDaoLocal`, ITs HTTP de caja negra, config solo por `ConfigProvider`, logging neutro en el código puro, mappers con lógica en clases puras.
 - Pasos 👤: prepara todo, explica qué debe hacer el usuario y espera su confirmación.
 - Pasos Spike: sin código de producción; escribe la decisión en el UMSETZUNGSPLAN.
 

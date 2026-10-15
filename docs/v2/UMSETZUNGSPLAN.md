@@ -75,3 +75,11 @@ Para un **Spike**, "Qué se hizo" se sustituye por **Pregunta**, **Opciones** y 
 - **Commit:** `[0.5.4]`
 - **Siguiente:** 0.1.1 Crear el tag `v1-legacy` (👤) → esperando ROGER
 
+### [Decisión DA-002] Reglas de código R1–R8 · 15.10.2026
+- **Agente:** Claude
+- **Pregunta:** ¿se adoptan las reglas de FUTURO_SPRING §4 para que un futuro host Spring salga barato?
+- **Decisión:** sí (ROGER del usuario). Obligatorias en todos los micropasos. R1, R3, R4 y R7 se comprueban con ArchUnit (paso 0.4.1); R5 con la base de ITs (0.4.3).
+- **Clases / archivos:** `design/DECISIONES.md`, `design/FUTURO_SPRING.md`, `ROADMAP.md`, `README.md`, `AGENTS.md`
+- **Commit:** `[DA-002]`
+- **Siguiente:** 0.1.1 Crear el tag `v1-legacy` (👤) → esperando ROGER
+

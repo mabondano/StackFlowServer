@@ -119,9 +119,9 @@ Módulos nuevos que harían falta: `stackflow-adapter-spring` (servicios, seguri
 
 **Recomendación para entonces:** empezar con **Spring Boot + Jersey**. Mantiene JAX-RS, los `ExceptionMapper` y los filtros, así que el primer host Spring solo reescribe los servicios y la configuración. `@RestController` puede venir después, como ejercicio de aprendizaje.
 
-## 4. Reglas propuestas para v2 (para que Spring salga barato)
+## 4. Reglas de v2 para que Spring salga barato (DA-002)
 
-**Estado: propuestas, pendientes de ROGER.** R1 ya forma parte de DA-001. El resto solo se aplicará en los micropasos si el usuario las aprueba. Cuestan muy poco en v2 y ahorran mucho trabajo después.
+**Estado: aprobadas (DA-002, ROGER del 15.10.2026).** Son obligatorias en todos los micropasos de v2. Cuestan muy poco y ahorran mucho trabajo después.
 
 | # | Regla | Cómo se comprueba |
 |---|---|---|

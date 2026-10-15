@@ -38,6 +38,7 @@ Este roadmap describe la implementación completa de StackFlowServer v2, desde c
 - Nombres según Revisión 2 §4 (`*DTO`, `*ServiceBean`, `*DaoBean`, `*Resource`, `*Mapper`, `*Port`, `*Adapter`, `Unavailable*`).
 - Los módulos de Revisión 2 §2 se crean **en el primer paso que los necesita**.
 - Motores opcionales (Pegasus, ModelForge): port + adaptador con perfil Maven + bean `Unavailable*` por defecto → 503 `ENGINE_NOT_INSTALLED`.
+- **Reglas R1–R8 (DA-002)** obligatorias en cada micropaso (ver `design/DECISIONES.md`).
 
 ### 1.3 Reglas
 
@@ -120,9 +121,9 @@ Formato de cada milestone: **Objetivo**, **Depende de**, **Diseño**, tabla de m
 
 | ID | Micropaso | Clases / archivos | Verificación |
 |---|---|---|---|
-| 0.4.1 | Módulo de test `stackflow-architecture-tests` con ArchUnit: `domain`/`ports` sin `jakarta.*`; solo `adapter-merlabcore` importa `com.merlab.signals..`; solo `adapter-pegasus` importa `pegasus..`; nadie depende de `adapter-jakarta` salvo `host-wildfly`. | `ArchitectureTest` | verde |
+| 0.4.1 | Módulo de test `stackflow-architecture-tests` con ArchUnit: `domain`/`ports` sin `jakarta.*` (R1); solo `adapter-merlabcore` importa `com.merlab.signals..`; solo `adapter-pegasus` importa `pegasus..`; nadie depende de `adapter-jakarta` salvo `host-wildfly`; adaptadores de motores sin `jakarta.ejb` (R3); solo `*DaoBean` usa `EntityManager` (R4); código puro sin JBoss Logging (R7). | `ArchitectureTest` | verde |
 | 0.4.2 | Convención `*Test` (surefire) / `*IT` (failsafe, perfil `it`). | POMs | — |
-| 0.4.3 | Base Arquillian (WildFly managed, `jbossHome` por propiedad) + `AbstractStackflowIT` + `IndexIT`. | `host-wildfly/src/test` | `mvn -Pit verify` |
+| 0.4.3 | Base Arquillian (WildFly managed, `jbossHome` por propiedad) + `AbstractStackflowIT` con cliente HTTP de caja negra y URL base `-Dstackflow.baseUrl` (R5) + `IndexIT`. | `host-wildfly/src/test` | `mvn -Pit verify` |
 | 0.4.4 | `.editorconfig` y cabecera de licencia Apache 2.0. | raíz | — |
 
 **DoD:** reglas activas y un IT de humo.

@@ -5,6 +5,7 @@ Cada decisión se registra solo cuando el usuario la confirma con **ROGER**. Las
 | ID | Fecha | Decisión | Estado |
 |---|---|---|---|
 | DA-001 | 15.10.2026 | Estilo del núcleo: **Opción C (mixta)**: EJB para los servicios, Java puro para el motor de cálculo | Aprobada (ROGER C) |
+| DA-002 | 15.10.2026 | **Reglas R1–R8** de código que mantienen barato un futuro host Spring | Aprobada (ROGER) |
 
 ---
 
@@ -38,4 +39,26 @@ Los EJB crean los objetos del motor con `new`. **No hay** una clase central de "
 - ✅ Forma de trabajo conocida (NetBeans + WildFly + EJB); tests rápidos del motor; pocas clases; sin errores de cableado CDI.
 - ❌ Un host Spring futuro tendría que reescribir los beans (el motor, los ports, los DTOs y las entidades sí se reutilizan). Ver [FUTURO_SPRING.md](FUTURO_SPRING.md).
 
-**Pendiente de aplicar:** el ROADMAP y los documentos de diseño todavía usan nombres anteriores (`JobService`, `MlEnginePort`, `stackflow-service`…). Se adaptarán en la "Revisión 2" del diseño, que necesita su propio ROGER.
+**Aplicado** en la Revisión 2 del diseño y del roadmap (paso 0.5.4): nombres, módulos y estilo. Los documentos anteriores se leen con la tabla de traducción de DISENO_REVISION_2 §11.
+
+---
+
+## DA-002 · Reglas de código R1–R8
+
+**Contexto.** Con DA-001 (opción C), un host Spring futuro reutiliza el motor, los ports, los DTOs y las entidades. Las reglas de [FUTURO_SPRING.md](FUTURO_SPRING.md) §4 hacen que esa reutilización sea real y barata. No añaden funcionalidad: dicen **cómo** escribir el código del roadmap.
+
+**Decisión.** Las reglas son obligatorias en todos los micropasos:
+
+| # | Regla | Comprobación |
+|---|---|---|
+| R1 | Dominio, motor RPN y ports sin `jakarta.*` (salvo `jakarta.validation` en DTOs). | ArchUnit |
+| R2 | Los beans EJB son delgados: coordinan y delegan. La lógica larga o con varios caminos va a una clase Java pura que el bean usa con `new`. | revisión en cada micropaso |
+| R3 | Los adaptadores de motores (MerLabCore, Pegasus, ModelForge) son clases Java normales, expuestas por un producer CDI pequeño; sin `@Stateless` ni lógica de contenedor. | ArchUnit (sin `jakarta.ejb` en esos módulos) |
+| R4 | Los servicios acceden a datos siempre por `XDaoLocal`; solo los `*DaoBean` usan `EntityManager`. | ArchUnit |
+| R5 | Los tests de integración de la API son HTTP de caja negra, con la URL base como parámetro (`-Dstackflow.baseUrl`). | convención de los `*IT` |
+| R6 | La configuración se lee solo con `ConfigProvider` y claves de `ConfigKeys`. | revisión |
+| R7 | El código Java puro (motor, adaptadores de motores) usa `java.util.logging` o SLF4J, no JBoss Logging. | ArchUnit |
+| R8 | La lógica de cada `ExceptionMapper` y filtro vive en una clase Java pura (p. ej. `ErrorDTOFactory`). | revisión |
+
+**Consecuencias.** ✅ Un posible host Spring reescribiría solo los beans y la configuración (con Jersey, ni siquiera los resources). ❌ Unas pocas clases auxiliares más (factorías, producers de adaptadores).
+
