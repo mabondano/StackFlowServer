@@ -1,108 +1,157 @@
 # StackFlowServer
 
-**StackFlowServer** is a modular, enterprise-grade backend engine for data processing, orchestration, machine learning, and analytics.  
-It is designed for medium-scale applications (medical practices, business analytics, engineering) — not Big Data, but robust and real-world.
+StackFlowServer is a modular, extensible backend engine for processing, analyzing, and orchestrating data pipelines, machine learning, and signal processing tasks.  
+It is designed for **medium-sized data applications** such as medical practices, engineering analytics, and business intelligence — not Big Data, but robust, real-world processing.
 
 ---
 
-## 🚀 Features
+## Features
 
-- **Modular Architecture:** Cleanly separated packages for ML, LLM, signal processing, statistics, monitoring, and more.
-- **Extensible API:** REST endpoints for easy integration with your existing apps.
-- **RPN Stack Pipeline:** Powerful and flexible dataflow using Reverse Polish Notation (RPN) stacks for chaining operations.
-- **Plug & Play ML & LLM:** Integrate your custom algorithms, models, and AI workflows.
-- **Modern Persistence:** Uses HikariCP for fast database connection pooling (MariaDB, PostgreSQL, etc.).
-- **Orchestration & Scheduling:** Batch and streaming jobs, job monitoring, and alerting.
-- **Memory & Caching:** Efficient management of temporary data, jobs, and results.
-- **Professional Codebase:** Built with best practices in Java EE/Jakarta EE (2025), ready for cloud or on-premises deployment.
+- **RPN Stack Core:** Perform data and signal operations with an RPN (Reverse Polish Notation) stack paradigm, supporting easy chaining and pipeline building.
+- **Batch and Streaming Processing:** Efficiently process data both in batch mode (historical, scanned data) and real-time streaming (e.g., financial indicators, sensor signals).
+- **Scenario Management:** Save, load, and reproduce entire processing pipelines and their results for reproducibility and regression testing.
+- **Pluggable Architecture:** Easily extend with plugins for new algorithms, data sources, ML models, or visualization.
+- **Monitoring and Logging:** Advanced monitoring of resources, jobs, model training, and key metrics with alerting capabilities.
+- **Multi-DB Support:** Works with MariaDB, PostgreSQL, and NoSQL databases out-of-the-box.
+- **REST API & Scripting:** Full REST endpoints for orchestration and a scripting layer (Merlynx) for custom pipeline creation.
+- **User Roles & Security:** Basic user roles (Admin, Analyst, Viewer) for access control.
 
 ---
 
-## 🗂️ Package Structure
+## Architecture
+
+Below is a simplified ASCII architecture diagram (see UML for full details):
 
 ```plaintext
-com.merlab.stackflow
-├── api/            # REST controllers and endpoints
-├── config/         # Application and resource configuration (DB, HikariCP, etc.)
-├── db/             # Database adapters, pools, connection management
-├── datamanager/    # Dataset import/export, adapters
-├── llm/            # Large Language Model integration (loaders, managers, adapters)
-├── memory/         # Memory/cache management
-├── merlabcore/     # Core orchestration and RPN stack logic
-├── mlcore/         # Traditional ML algorithms and pipelines
-├── monitoring/     # Job monitoring, metrics, and alerting
-├── orchestrator/   # Job scheduling, batch/stream orchestration
-├── persistence/    # DAOs and JPA entities (dao/, dao.impl/, entity/)
-├── resources/      # (Resource management utilities; for Java resources use src/main/resources)
-├── service/        # Service interfaces
-├── service.impl/   # Service implementations (EJB, CDI)
-├── signals/        # Signal processing and generation
-├── statistics/     # Statistical functions, metrics, evaluation
-├── util/           # Utility/helper classes
+       +----------------+
+       |     User       |
+       +----------------+
+                |
+      (authenticated by)
+                v
+       +----------------+
+       |   APILayer     |
+       +----------------+
+                |
+         (delegates to)
+                v
+       +----------------+
+       | Orchestrator   |
+       +----------------+
+   /   |     |     |    |    |    \
+  v    v     v     v    v     v    v
++----------+ +----------+ +-----------+ +--------------+ +-------------+ +-------------+ +-----------+
+|BatchProc | |StreamProc| |ScenarioMgr| |PluginManager | | Monitor | | MLCore | | MerLabCore|
++----------+ +----------+ +-----------+ +--------------+ +-------------+ +-------------+ +-----------+
+| | | | |
+v v v v v
++--------+ +-------+ +-----------+ +-------------+ +------------+
+| Worker | |Buffer | | Scenario | | Archiving | | DBAdapter |
++--------+ +-------+ +-----------+ +-------------+ +------------+
+| | (managed by) (used for (used for
+v v versions, logs) DB ops)
++--------+ +--------+
+|RPNStack| |RPNStack|
++--------+ +--------+
+| \ / |
+v v v v
++---------+ +--------+
+|StackElem| |Operation|
++---------+ +--------+
+
+(Relationships: e.g., APILayer --> Orchestrator, Orchestrator --> BatchProc, etc.)
 ```
+
 ---
+<img width="308" alt="image" src="https://github.com/user-attachments/assets/2e2dae18-070c-4ca9-bbe9-4667aeeaff04" />
+<img width="506" alt="image" src="https://github.com/user-attachments/assets/c5a63d10-aac8-4a59-bbd9-61ab94ab93de" />
 
-## Getting Started
-Clone the repo:
+---
+## Example Use Cases
 
-```bash
+### 1. **Medical Data Batch Analysis**
+> Process a clinic’s last quarter of ECG records, automatically identify anomalies, and generate warnings or reports for physicians.
 
-git clone https://github.com/your-username/StackFlowServer.git
-cd StackFlowServer
-```
+### 2. **Business Intelligence & Dashboards**
+> Analyze transaction or sensor data from a medium-sized company, visualize trends, and produce interactive dashboards or alerts.
 
-Build with Maven:
-
-```bash
-
-mvn clean install
-```
-
-Deploy on your Java EE server (Wildfly, Payara, TomEE, etc.):
-
-Deploy the generated .war file from /target directory.
-
-API Reference:
-
-REST endpoints are available at /api/* (see com.merlab.stackflow.api).
+### 3. **Real-Time Streaming Analytics**
+> Ingest real-time dollar/euro exchange rate data, apply signal processing and ML models, and trigger alerts or actions if indicators are abnormal.
 
 ---
 
-## 🔗 Dependencies
+## Core Modules & Responsibilities
 
-Java 17+
-
-Jakarta EE 10
-
-Maven 3.6+
-
-HikariCP (for database pooling)
-
-JUnit 5 (for testing)
-
-Jackson (for JSON processing)
-
-(add others as needed)
-
----
-
-## ⚡ How to Use
-Import your custom ML/LLM/Signal libraries as Maven dependencies.
-
-Implement your own jobs, pipelines, and processing stacks by extending core interfaces.
-
-See the /examples package or consult the wiki for use-cases.
+| Module         | Purpose                                                               |
+|----------------|-----------------------------------------------------------------------|
+| APILayer       | Exposes REST endpoints and scripting for external clients             |
+| Orchestrator   | Central coordinator for jobs, events, batch/stream scheduling         |
+| BatchProcessor | Divides work into chunks, manages Workers for batch processing        |
+| StreamProcessor| Handles incoming events, manages windowed streaming analytics         |
+| RPNStack       | Core stack-based signal/data processor                                |
+| ScenarioManager| Manages, saves, and runs pipeline scenarios                           |
+| Monitor        | Logs, metrics, alerts, resource tracking                              |
+| PluginManager  | Loads/unloads plugins and extensions                                  |
+| MLCore         | Machine Learning (train, predict, model lifecycle)                    |
+| MerLabCore     | Core signal/data processing engine                                    |
+| Archiving      | Versioning and rollback of scenarios/results                          |
+| DBAdapter      | Database access abstraction (MariaDB, PostgreSQL, etc.)               |
+| User           | User entity with roles (Admin, Analyst, Viewer)                       |
 
 ---
 
-## 📄 License
-This project is licensed under the Apache License 2.0 — see the LICENSE file for details.
+## Scenarios and Reproducibility
+
+- Each scenario captures the full state (stack, parameters, results) for a complete pipeline run.
+- Scenarios can be run in batch for regression testing or comparison.
+- Supports “golden scenarios” to ensure results remain consistent after code or model changes.
 
 ---
 
-## 🙋 About
-Created by Merly Abondano
-For more information, see the documentation or contact me via GitHub.
+## Plugin System
+
+- Integrate third-party or custom plugins for:
+    - New ML algorithms (DL4J, Python bridges, etc.)
+    - External data sources (HL7 for medical, CSV, REST, etc.)
+    - Visualization tools
+
+---
+
+## Roadmap
+
+- [ ] GUI for pipeline building (visual RPN stack)
+- [ ] Extended real-time streaming support (Kafka, RabbitMQ)
+- [ ] User authentication and OAuth integration
+- [ ] Auto-scaling and distributed orchestration
+- [ ] Built-in dashboard and reporting modules
+- [ ] Enhanced plugin marketplace
+
+---
+
+## Contributing
+
+Contributions and ideas are welcome!  
+See [CONTRIBUTING.md](CONTRIBUTING.md) for details (coming soon).
+
+---
+
+## License
+
+This project is licensed under the Apache License, Version 2.0.  
+See the [LICENSE](LICENSE) file for details.
+
+---
+
+## Contact
+
+Created by [Your Name or GitHub username].  
+Questions, feature requests, or ideas? Open an [issue](https://github.com/YOUR-USERNAME/StackFlowServer/issues) or contact me!
+
+---
+
+## UML Diagrams
+
+> See the `/docs/uml` folder for full PlantUML code and graphical diagrams.
 
 ---
 
