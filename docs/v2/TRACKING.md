@@ -8,8 +8,8 @@ Estado de todos los milestones y micropasos del [ROADMAP.md](ROADMAP.md). Lo act
 
 | Campo | Valor |
 |---|---|
-| Siguiente micropaso | **0.3.1** |
-| Último terminado | 0.2.6 |
+| Siguiente micropaso | **0.3.2** |
+| Último terminado | 0.3.1 |
 | Última actualización | 16.10.2026 |
 
 ## Resumen por milestone
@@ -18,7 +18,7 @@ Estado de todos los milestones y micropasos del [ROADMAP.md](ROADMAP.md). Lo act
 |---|---|---|---|---|
 | 0 | 0.1 | Rama v2 y retirada del código v1 | 5/5 | Terminado |
 | 0 | 0.2 | Proyecto Maven multi-módulo | 6/6 | Terminado |
-| 0 | 0.3 | NetBeans y WildFly | 0/5 | Pendiente |
+| 0 | 0.3 | NetBeans y WildFly | 1/5 | En proceso |
 | 0 | 0.4 | Guardarraíles | 0/4 | Pendiente |
 | 0 | 0.5 | Documentación de trabajo | 4/4 | Terminado |
 | A | A0 | Soporte de pruebas | 0/2 | Pendiente |
@@ -116,7 +116,7 @@ Total: 68 milestones, 265 micropasos.
 
 | ID | Micropaso | Marca | Estado | Fecha | Commit | Notas |
 |---|---|---|---|---|---|---|
-| 0.3.1 | Abrir stackflow (rama v2) en NetBeans como proyecto padre; nb-configuration.xml en host-wildfly con el hint… | 👤 | Pendiente |  |  |  |
+| 0.3.1 | Abrir stackflow (rama v2) en NetBeans como proyecto padre; nb-configuration.xml en host-wildfly con el hint… | 👤 | Terminado | 16.10.2026 | [0.3.1] | NetBeans: 5 módulos, Clean and Build OK |
 | 0.3.2 | Registrar WildFly 36 en NetBeans (8090) y decidir standalone.xml o standalone-microprofile.xml (se recomien… | 👤 | Pendiente |  |  |  |
 | 0.3.3 | DataSources StackflowDS y StackflowTestDS con un script CLI versionado. | 👤 | Pendiente |  |  |  |
 | 0.3.4 | Desplegar el WAR vacío. |  | Pendiente |  |  |  |

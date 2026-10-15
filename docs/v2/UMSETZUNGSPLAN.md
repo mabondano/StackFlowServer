@@ -193,3 +193,12 @@ Para un **Spike**, "Qué se hizo" se sustituye por **Pregunta**, **Opciones** y 
 - **Decisiones:** —
 - **Commit:** `[0.2.6]`, con push de `v2`
 - **Siguiente:** 0.3.1 👤 Abrir el proyecto en NetBeans → esperando ROGER (milestone 0.2 terminado)
+
+### [0.3.1] Proyecto abierto en NetBeans · 16.10.2026
+- **Agente:** Claude + usuario (👤)
+- **Qué se hizo:** el usuario abrió `stackflow` (rama `v2`) en NetBeans con Maven 3.9.16: aparecen el padre "StackFlowServer [v2]" y los 5 módulos (Domain, Ports, API Contract, Adapter Jakarta, Host WildFly). *Clean and Build* desde NetBeans → BUILD SUCCESS (6,3 s). Claude añadió `stackflow-host-wildfly/nb-configuration.xml` con el hint de despliegue a WildFly (mismo valor que v1).
+- **Clases / archivos:** `stackflow-host-wildfly/nb-configuration.xml`
+- **Verificación:** captura del árbol de módulos y Reactor Summary de NetBeans (todo SUCCESS); NetBeans no creó otros archivos en el repo.
+- **Decisiones:** el proyecto `test-1.0-SNAPSHOT` que también aparece en NetBeans es independiente (`StackFlowServer/note.txt`, fuera del repo) y no afecta.
+- **Commit:** `[0.3.1]`, con push de `v2`
+- **Siguiente:** 0.3.2 👤 Registrar WildFly 36 en NetBeans y elegir el perfil del servidor → esperando ROGER
