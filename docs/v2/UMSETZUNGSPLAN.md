@@ -175,3 +175,12 @@ Para un **Spike**, "Qué se hizo" se sustituye por **Pregunta**, **Opciones** y 
 - **Decisiones:** `stackflow-ports` todavía no entra en el WAR (nadie lo usa aún); llegará con el primer adaptador (E1).
 - **Commit:** `[0.2.4]`, con push de `v2`
 - **Siguiente:** 0.2.5 Perfiles Maven `pegasus` y `modelforge` → esperando ROGER
+
+### [0.2.5] Perfiles Maven pegasus y modelforge · 16.10.2026
+- **Agente:** Claude
+- **Qué se hizo:** perfiles en el POM padre, vacíos de momento (los módulos se añaden en J2.2 y H3.3). `pegasus` se activa solo si existe `~/.m2/repository/com/merlab/rag/merlab-rag/0.1.0-SNAPSHOT/merlab-rag-0.1.0-SNAPSHOT.jar`; `modelforge` nunca se activa por defecto (ModelForge es remoto).
+- **Clases / archivos:** `pom.xml`
+- **Verificación:** `help:active-profiles` → por defecto ninguno (merlab-rag no está instalado, así que el modo "solo MerLabCore" es el actual); `-Ppegasus` y `-Pmodelforge` los activan. `mvn -P!pegasus,!modelforge clean verify` y `mvn -Ppegasus,modelforge clean verify` → BUILD SUCCESS.
+- **Decisiones:** la activación por fichero no admite propiedades del proyecto, así que la versión de merlab-rag va escrita en la ruta; si cambia, se actualiza ahí (está comentado en el POM).
+- **Commit:** `[0.2.5]`, con push de `v2`
+- **Siguiente:** 0.2.6 Regla de módulos bajo demanda en el POM padre → esperando ROGER

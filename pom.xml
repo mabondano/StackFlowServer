@@ -99,6 +99,42 @@
         </dependencies>
     </dependencyManagement>
 
+    <!--
+      Optional engines (DISENO_REVISION_2 §8). Each profile adds its adapter module when that module exists:
+        pegasus    -> stackflow-adapter-pegasus     (group J)
+        modelforge -> stackflow-adapter-modelforge  (group H)
+      Without a profile, StackFlow builds and runs with MerLabCore only; the Unavailable* beans answer
+      503 ENGINE_NOT_INSTALLED.
+    -->
+    <profiles>
+        <profile>
+            <id>pegasus</id>
+            <!--
+              Active automatically when the PegasusRAG jar (MerLabRAG) is installed in the local repository.
+              Maven only interpolates system properties here, so the version is written literally;
+              update it when merlab-rag changes version. Force: -Ppegasus. Disable: -P!pegasus.
+            -->
+            <activation>
+                <file>
+                    <exists>${user.home}/.m2/repository/com/merlab/rag/merlab-rag/0.1.0-SNAPSHOT/merlab-rag-0.1.0-SNAPSHOT.jar</exists>
+                </file>
+            </activation>
+            <modules>
+                <!-- <module>stackflow-adapter-pegasus</module>  (added in step J2.2) -->
+            </modules>
+        </profile>
+        <profile>
+            <id>modelforge</id>
+            <!--
+              Never active by default: ModelForge runs remotely on a Mac mini and is reached over HTTP.
+              Enable with -Pmodelforge.
+            -->
+            <modules>
+                <!-- <module>stackflow-adapter-modelforge</module>  (added in step H3.3) -->
+            </modules>
+        </profile>
+    </profiles>
+
     <build>
         <pluginManagement>
             <plugins>
