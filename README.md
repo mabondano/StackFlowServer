@@ -1,108 +1,43 @@
 # StackFlowServer
 
-**StackFlowServer** is a modular, enterprise-grade backend engine for data processing, orchestration, machine learning, and analytics.  
-It is designed for medium-scale applications (medical practices, business analytics, engineering) — not Big Data, but robust and real-world.
+**StackFlowServer** is the runtime of the MerLab platform: a Jakarta EE 10 server (WildFly) that exposes **MerLabCore** as a REST API. It runs RPN stack operations, signal processing and machine-learning algorithms on signals and data, chains them in pipelines and executes them as jobs. First applications: **audio** and **trading**.
 
----
+Optional engines, integrated through ports and adapters, never mixed with the core:
 
-## 🚀 Features
+- **PegasusRAG**: RAG and knowledge engine (Maven profile `pegasus`).
+- **ModelForge**: model training on a remote machine, reached over HTTP (Maven profile `modelforge`).
+- **Merlynix**: the language of the RPN stack (planned after 2.0).
 
-- **Modular Architecture:** Cleanly separated packages for ML, LLM, signal processing, statistics, monitoring, and more.
-- **Extensible API:** REST endpoints for easy integration with your existing apps.
-- **RPN Stack Pipeline:** Powerful and flexible dataflow using Reverse Polish Notation (RPN) stacks for chaining operations.
-- **Plug & Play ML & LLM:** Integrate your custom algorithms, models, and AI workflows.
-- **Modern Persistence:** Uses HikariCP for fast database connection pooling (MariaDB, PostgreSQL, etc.).
-- **Orchestration & Scheduling:** Batch and streaming jobs, job monitoring, and alerting.
-- **Memory & Caching:** Efficient management of temporary data, jobs, and results.
-- **Professional Codebase:** Built with best practices in Java EE/Jakarta EE (2025), ready for cloud or on-premises deployment.
+> **Status:** version 2 is being rebuilt from scratch on branch `v2`. Version 1 (3-tier) is preserved on `master` and in the tag `v1-legacy`.
 
----
+## Build
 
-## 🗂️ Package Structure
-
-```plaintext
-com.merlab.stackflow
-├── api/            # REST controllers and endpoints
-├── config/         # Application and resource configuration (DB, HikariCP, etc.)
-├── db/             # Database adapters, pools, connection management
-├── datamanager/    # Dataset import/export, adapters
-├── llm/            # Large Language Model integration (loaders, managers, adapters)
-├── memory/         # Memory/cache management
-├── merlabcore/     # Core orchestration and RPN stack logic
-├── mlcore/         # Traditional ML algorithms and pipelines
-├── monitoring/     # Job monitoring, metrics, and alerting
-├── orchestrator/   # Job scheduling, batch/stream orchestration
-├── persistence/    # DAOs and JPA entities (dao/, dao.impl/, entity/)
-├── resources/      # (Resource management utilities; for Java resources use src/main/resources)
-├── service/        # Service interfaces
-├── service.impl/   # Service implementations (EJB, CDI)
-├── signals/        # Signal processing and generation
-├── statistics/     # Statistical functions, metrics, evaluation
-├── util/           # Utility/helper classes
-```
----
-
-## Getting Started
-Clone the repo:
+Requirements: Java 17, Maven 3.9+, WildFly 36, MariaDB. MerLabCore installed in the local Maven repository (`mvn install` in the MerLabCore project).
 
 ```bash
-
-git clone https://github.com/your-username/StackFlowServer.git
-cd StackFlowServer
+mvn -P!pegasus,!modelforge clean verify
 ```
 
-Build with Maven:
+The multi-module Maven project is created in milestone 0.2 of the roadmap. Until then, this branch contains documentation only.
 
-```bash
+## Documentation
 
-mvn clean install
-```
+All working documentation lives in [`docs/v2/`](docs/v2/README.md):
 
-Deploy on your Java EE server (Wildfly, Payara, TomEE, etc.):
+| Document | Purpose |
+|---|---|
+| [docs/v2/README.md](docs/v2/README.md) | ROGER protocol and rules for implementation agents |
+| [docs/v2/ROADMAP.md](docs/v2/ROADMAP.md) | groups, milestones and micro-steps |
+| [docs/v2/TRACKING.md](docs/v2/TRACKING.md) | status of every micro-step |
+| [docs/v2/UMSETZUNGSPLAN.md](docs/v2/UMSETZUNGSPLAN.md) | implementation log |
+| [docs/v2/design/](docs/v2/design/) | decisions (DA-xxx) and design |
 
-Deploy the generated .war file from /target directory.
+Version 1 documentation: [`docs/v1/`](docs/v1/).
 
-API Reference:
+## License
 
-REST endpoints are available at /api/* (see com.merlab.stackflow.api).
+Apache License 2.0. See [LICENSE.txt](LICENSE.txt).
 
----
+## Author
 
-## 🔗 Dependencies
-
-Java 17+
-
-Jakarta EE 10
-
-Maven 3.6+
-
-HikariCP (for database pooling)
-
-JUnit 5 (for testing)
-
-Jackson (for JSON processing)
-
-(add others as needed)
-
----
-
-## ⚡ How to Use
-Import your custom ML/LLM/Signal libraries as Maven dependencies.
-
-Implement your own jobs, pipelines, and processing stacks by extending core interfaces.
-
-See the /examples package or consult the wiki for use-cases.
-
----
-
-## 📄 License
-This project is licensed under the Apache License 2.0 — see the LICENSE file for details.
-
----
-
-## 🙋 About
-Created by Merly Abondano
-For more information, see the documentation or contact me via GitHub.
-
----
-
+Merly Abondano

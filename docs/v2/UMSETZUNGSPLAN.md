@@ -121,3 +121,12 @@ Para un **Spike**, "Qué se hizo" se sustituye por **Pregunta**, **Opciones** y 
 - **Decisiones:** también se sube `master` (fast-forward hasta `53ef018`, el merge ya hecho) para que el tag `v1-legacy` apunte a un commit de una rama remota.
 - **Commit:** `[0.1.4]`, con push de `v2` y `master`
 - **Siguiente:** 0.1.5 README v2 provisional → esperando ROGER
+
+### [0.1.5] README v2 provisional · 15.10.2026
+- **Agente:** Claude
+- **Qué se hizo:** README reescrito para v2 (en inglés, como el código): qué es StackFlowServer (runtime de MerLabCore; audio y trading), motores opcionales (PegasusRAG, ModelForge, Merlynix), estado (v2 en reconstrucción, v1 en `master` + `v1-legacy`), cómo compilar y enlaces a `docs/v2/` y `docs/v1/`. Licencia Apache 2.0 (`LICENSE.txt`).
+- **Clases / archivos:** `README.md`
+- **Verificación:** enlaces relativos comprobados (existen `docs/v2/README.md`, `docs/v1/`, `LICENSE.txt`).
+- **Decisiones:** —
+- **Commit:** `[0.1.5]`, con push de `v2`
+- **Siguiente:** 0.2.1 POM padre `stackflow-parent` → esperando ROGER (milestone 0.1 terminado)
