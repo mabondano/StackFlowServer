@@ -1,0 +1,10 @@
+# StackFlowServer v2 - WildFly 36: HTTP port 8090 for standalone-microprofile.xml (step 0.3.2).
+#
+# Offline script (the server must be stopped). Run from the WildFly bin folder:
+#   jboss-cli.bat --file=<repo>\scripts\wildfly\http-port-8090.cli
+#
+# Idempotent: running it twice leaves the same value.
+
+embed-server --server-config=standalone-microprofile.xml --std-out=echo
+/socket-binding-group=standard-sockets/socket-binding=http:write-attribute(name=port, value="${jboss.http.port:8090}")
+stop-embedded-server

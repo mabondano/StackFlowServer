@@ -109,9 +109,9 @@ Formato de cada milestone: **Objetivo**, **Depende de**, **Diseño**, tabla de m
 | ID | Micropaso | Clases / archivos | Verificación |
 |---|---|---|---|
 | 0.3.1 | 👤 Abrir `stackflow` (rama `v2`) en NetBeans como proyecto padre; `nb-configuration.xml` en `host-wildfly` con el hint de WildFly. En NetBeans, *Tools → Options → Java → Maven*: **Maven Home** `C:\apache-maven-3.9.16`. Los certificados ya están resueltos con la variable de usuario `MAVEN_OPTS` (ver AGENTS.md). | `nb-configuration.xml` | NetBeans muestra los módulos y descarga dependencias |
-| 0.3.2 | 👤 Registrar WildFly 36 en NetBeans (8090) y decidir `standalone.xml` o `standalone-microprofile.xml` (se recomienda microprofile por OpenAPI y métricas). | Umsetzungsplan | servidor arranca |
+| 0.3.2 | 👤 Decidir la configuración del servidor (decidido: `standalone-microprofile.xml`, DA-004) y dejarla en HTTP 8090 con un script CLI versionado. | `scripts/wildfly/http-port-8090.cli` | WildFly arranca con microprofile en 8090 |
 | 0.3.3 | 👤 DataSources `StackflowDS` y `StackflowTestDS` con un script CLI versionado. | `scripts/wildfly/datasources.cli` | `test-connection-in-pool` OK |
-| 0.3.4 | Desplegar el WAR vacío. | — | `GET /stackflow/` → 200 |
+| 0.3.4 | 👤 Registrar WildFly 36 en NetBeans (*Services → Servers → Add Server → WildFly*, ruta `C:\merLab\projects\StackFlowServer\wildfly-36.0.1.Final`, configuración `standalone-microprofile.xml`) y desplegar el WAR vacío desde NetBeans. El WAR nuevo sustituye al `stackflow.war` v1 que sigue en `deployments/`. | NetBeans | `GET /stackflow/` → 200 |
 | 0.3.5 | `wildfly-maven-plugin` + `scripts/build.ps1` y `scripts/deploy.ps1`. | POM, `scripts/` | despliegue por script |
 
 **DoD:** despliegue desde NetBeans y desde Maven.
