@@ -92,3 +92,17 @@ Para un **Spike**, "Qué se hizo" se sustituye por **Pregunta**, **Opciones** y 
 - **Decisiones:** —
 - **Commit:** `[0.1.1]` (solo documentación; el tag no cambia archivos)
 - **Siguiente:** 0.1.3 Retirar el código v1 de la rama v2 → esperando ROGER
+
+### [0.1.1] Nota: tag subido · 15.10.2026
+- **Agente:** Claude
+- **Qué se hizo:** a petición del usuario, `git push origin v1-legacy`. Solo el tag; `master` y `v2` siguen sin push.
+- **Decisiones:** Git Bash falla con "SSL certificate problem" usando OpenSSL; el push funcionó con `-c http.sslBackend=schannel` (almacén de certificados de Windows). No se cambió la configuración global de git.
+
+### [0.1.3] Retirar el código v1 de la rama v2 · 15.10.2026
+- **Agente:** Claude
+- **Qué se hizo:** documentación v1 movida a `docs/v1/` (`API.md`, `DATABASE_SCHEMA.md`, `SETUP_GUIDE.md`, `Setup Guide.docx`, `sqlscript_stackflowdb.sql`, `postman/`). Borrados en `v2`: `src/` (todo el código v1), `class_list.txt`, `pom.xml` v1 y `nb-configuration.xml` v1 (en 0.3.1 se crea uno nuevo en `stackflow-host-wildfly`). El v1 sigue intacto en `master` y en el tag `v1-legacy`.
+- **Clases / archivos:** `docs/v1/**`; borrados `src/**`, `class_list.txt`, `pom.xml`, `nb-configuration.xml`
+- **Verificación:** no queda `src/` en la raíz; `git status` → 181 borrados y 6 movidos. (No hay build hasta 0.2.)
+- **Decisiones:** la carpeta `Neuer Ordner` (vacía y fuera de git) se deja como está; `target/` se trata en 0.1.4.
+- **Commit:** `[0.1.3]`
+- **Siguiente:** 0.1.4 `.gitignore` y sacar `target/` del índice → esperando ROGER
