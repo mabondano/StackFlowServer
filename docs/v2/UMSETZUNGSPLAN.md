@@ -56,3 +56,12 @@ Para un **Spike**, "Qué se hizo" se sustituye por **Pregunta**, **Opciones** y 
 - **Decisiones:** —
 - **Commit:** el commit `[0.5.3]` de la rama `v2`
 - **Siguiente:** 0.1.1 Crear el tag `v1-legacy` (👤) → esperando ROGER
+
+### [Decisión DA-001] Estilo del núcleo: Opción C · 15.10.2026
+- **Agente:** Claude
+- **Pregunta:** ¿EJB en todo (A), núcleo Java puro + cableado CDI (B) o mixta (C)?
+- **Opciones:** A (simple y conocida, sin tests rápidos del motor), B (independiente del framework, con el doble de clases), C (EJB en servicios, Java puro en el motor).
+- **Decisión:** **C** (ROGER C del usuario). Detalle en `design/DECISIONES.md`. Notas para un posible host Spring futuro en `design/FUTURO_SPRING.md`; sus reglas R2–R8 están pendientes de ROGER.
+- **Clases / archivos:** `docs/v2/design/DECISIONES.md`, `docs/v2/design/FUTURO_SPRING.md`
+- **Commit:** `[DA-001]` (aprobado con ROGER)
+- **Siguiente:** Revisión 2 del diseño y del roadmap (nombres v1/Obsidian, módulos, RAG separado, ModelForge remoto, Merlynix al final) → esperando ROGER
