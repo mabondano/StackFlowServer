@@ -8,16 +8,16 @@ Estado de todos los milestones y micropasos del [ROADMAP.md](ROADMAP.md). Lo act
 
 | Campo | Valor |
 |---|---|
-| Siguiente micropaso | **0.2.3** |
-| Último terminado | 0.2.2 |
-| Última actualización | 15.10.2026 |
+| Siguiente micropaso | **0.2.4** |
+| Último terminado | 0.2.3 |
+| Última actualización | 16.10.2026 |
 
 ## Resumen por milestone
 
 | Grupo | Milestone | Título | Pasos | Estado |
 |---|---|---|---|---|
 | 0 | 0.1 | Rama v2 y retirada del código v1 | 5/5 | Terminado |
-| 0 | 0.2 | Proyecto Maven multi-módulo | 2/6 | En proceso |
+| 0 | 0.2 | Proyecto Maven multi-módulo | 3/6 | En proceso |
 | 0 | 0.3 | NetBeans y WildFly | 0/5 | Pendiente |
 | 0 | 0.4 | Guardarraíles | 0/4 | Pendiente |
 | 0 | 0.5 | Documentación de trabajo | 4/4 | Terminado |
@@ -107,7 +107,7 @@ Total: 68 milestones, 265 micropasos.
 |---|---|---|---|---|---|---|
 | 0.2.1 | POM padre com.merlab:stackflow-parent:2.0.0-SNAPSHOT: Java 17, UTF-8, Jakarta 10, dependencyManagement (jak… |  | Terminado | 15.10.2026 | [0.2.1] | Maven con Windows-ROOT (certificados) |
 | 0.2.2 | Módulos iniciales: stackflow-domain, stackflow-ports (Java puro) y stackflow-api-contract. |  | Terminado | 15.10.2026 | [0.2.2] | domain, ports, api-contract |
-| 0.2.3 | Módulo stackflow-adapter-jakarta (jar, META-INF/beans.xml). |  | Pendiente |  |  |  |
+| 0.2.3 | Módulo stackflow-adapter-jakarta (jar, META-INF/beans.xml). |  | Terminado | 16.10.2026 | [0.2.3] | beans.xml annotated |
 | 0.2.4 | Módulo stackflow-host-wildfly (war, finalName stackflow, jboss-web.xml con context root /stackflow, WEB-INF… |  | Pendiente |  |  |  |
 | 0.2.5 | Perfiles pegasus y modelforge declarados en el padre (vacíos de momento). |  | Pendiente |  |  |  |
 | 0.2.6 | Regla documentada en el POM padre: los demás módulos (rpn, registry, runtime, jobs, pipeline, storage, secu… |  | Pendiente |  |  |  |

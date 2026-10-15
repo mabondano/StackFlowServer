@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  stackflow-adapter-jakarta: inbound Jakarta adapter of StackFlowServer.
+  JAX-RS resources (*Resource), ExceptionMappers, filters, WebSocket endpoints (*SocketEndpoint),
+  MDBs and DTO mappers (*Mapper). Only host-wildfly depends on this module.
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.merlab</groupId>
+        <artifactId>stackflow-parent</artifactId>
+        <version>2.0.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>stackflow-adapter-jakarta</artifactId>
+    <packaging>jar</packaging>
+    <name>StackFlowServer :: Adapter Jakarta</name>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.merlab</groupId>
+            <artifactId>stackflow-api-contract</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.merlab</groupId>
+            <artifactId>stackflow-domain</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.platform</groupId>
+            <artifactId>jakarta.jakartaee-api</artifactId>
+        </dependency>
+    </dependencies>
+</project>

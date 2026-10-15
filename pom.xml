@@ -23,6 +23,7 @@
         <module>stackflow-domain</module>
         <module>stackflow-ports</module>
         <module>stackflow-api-contract</module>
+        <module>stackflow-adapter-jakarta</module>
     </modules>
 
     <licenses>

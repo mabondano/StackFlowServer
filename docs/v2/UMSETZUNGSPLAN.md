@@ -157,3 +157,12 @@ Para un **Spike**, "Qué se hizo" se sustituye por **Pregunta**, **Opciones** y 
 - **Decisiones:** paquete del contrato `com.merlab.stackflow.contract` (subpaquetes `contract.common`, `contract.job`… según el grupo A). Los perfiles `pegasus`/`modelforge` aún no existen (0.2.5), así que la verificación se hace sin `-P!…`.
 - **Commit:** `[0.2.2]`, con push de `v2`
 - **Siguiente:** 0.2.3 Módulo `stackflow-adapter-jakarta` → esperando ROGER
+
+### [0.2.3] Módulo stackflow-adapter-jakarta · 16.10.2026
+- **Agente:** Claude
+- **Qué se hizo:** módulo jar `stackflow-adapter-jakarta` (`com.merlab.stackflow.adapter.jakarta`): depende de `api-contract`, `domain` y `jakarta.jakartaee-api` (provided). `META-INF/beans.xml` (CDI 4.0, `bean-discovery-mode="annotated"`) para que WildFly lo trate como bean archive dentro del WAR.
+- **Clases / archivos:** `stackflow-adapter-jakarta/pom.xml`, `META-INF/beans.xml`, `package-info.java`; módulo añadido al padre
+- **Verificación:** `mvn clean verify` → BUILD SUCCESS (4 módulos); el jar contiene `META-INF/beans.xml`.
+- **Decisiones:** las dependencias de los módulos de aplicación (jobs, pipeline, security…) se añaden cuando existan.
+- **Commit:** `[0.2.3]`, con push de `v2`
+- **Siguiente:** 0.2.4 Módulo `stackflow-host-wildfly` (WAR) → esperando ROGER
