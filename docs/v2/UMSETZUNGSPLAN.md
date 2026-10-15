@@ -202,3 +202,13 @@ Para un **Spike**, "Qué se hizo" se sustituye por **Pregunta**, **Opciones** y 
 - **Decisiones:** el proyecto `test-1.0-SNAPSHOT` que también aparece en NetBeans es independiente (`StackFlowServer/note.txt`, fuera del repo) y no afecta.
 - **Commit:** `[0.3.1]`, con push de `v2`
 - **Siguiente:** 0.3.2 👤 Registrar WildFly 36 en NetBeans y elegir el perfil del servidor → esperando ROGER
+
+### [0.3.2] Configuración de WildFly: microprofile en 8090 · 16.10.2026
+- **Agente:** Claude
+- **Qué se hizo:** el usuario aprobó la recomendación (DA-004). Script versionado `scripts/wildfly/http-port-8090.cli` (offline, idempotente) aplicado a `standalone-microprofile.xml` (copia previa en `standalone-microprofile.xml.before-stackflow-v2`). Prueba de arranque y apagado del servidor.
+- **Clases / archivos:** `scripts/wildfly/http-port-8090.cli`, `design/DECISIONES.md` (DA-004), `ROADMAP.md`, `TRACKING.md`
+- **Verificación:** WildFly 36 arranca con `-c standalone-microprofile.xml`; Undertow escucha en 127.0.0.1:8090; `/metrics` (9990) → 200. Servidor apagado al terminar.
+- **Decisiones:** el registro del servidor en NetBeans pasa al paso 0.3.4 (junto con el primer despliegue desde NetBeans), para que 0.3.2 quede cerrado. El `stackflow.war` v1 que sigue en `deployments/` falla al arrancar (falta `StackflowDS`): es esperado y se resuelve en 0.3.3 y 0.3.4.
+- **Incidencia:** el primer commit `4bf8974` salió incompleto (un script de edición falló a mitad); este segundo commit lo completa. No se reescribió historia.
+- **Commit:** `4bf8974` + `[0.3.2] (completion)`, con push de `v2`
+- **Siguiente:** 0.3.3 👤 DataSources `StackflowDS` y `StackflowTestDS` → esperando ROGER

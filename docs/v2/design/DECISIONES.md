@@ -7,6 +7,7 @@ Cada decisión se registra solo cuando el usuario la confirma con **ROGER**. Las
 | DA-001 | 15.10.2026 | Estilo del núcleo: **Opción C (mixta)**: EJB para los servicios, Java puro para el motor de cálculo | Aprobada (ROGER C) |
 | DA-002 | 15.10.2026 | **Reglas R1–R8** de código que mantienen barato un futuro host Spring | Aprobada (ROGER) |
 | DA-003 | 15.10.2026 | **Cada ROGER cierra el paso del todo, incluido el push de `v2`**; sin pendientes entre pasos | Indicada por el usuario |
+| DA-004 | 16.10.2026 | WildFly con **`standalone-microprofile.xml`**, HTTP 8090 | Aprobada ("haz esto último") |
 
 ---
 
@@ -76,3 +77,12 @@ Los EJB crean los objetos del motor con `new`. **No hay** una clase central de "
 - Solo fast-forward: nunca `--force`, nunca reescribir historia publicada.
 - `master` y los tags existentes no se tocan.
 
+---
+
+## DA-004 · Configuración de WildFly: standalone-microprofile.xml
+
+**Contexto.** `standalone.xml` ya tenía HTTP 8090 (v1) pero no trae MicroProfile. `standalone-microprofile.xml` trae OpenAPI, métricas y health (útiles para B4 y el grupo K) sin añadir librerías al WAR, pero usaba 8080.
+
+**Decisión.** `standalone-microprofile.xml`, con HTTP en **8090** mediante `scripts/wildfly/http-port-8090.cli` (offline, idempotente). Copia previa del archivo: `standalone-microprofile.xml.before-stackflow-v2`.
+
+**Verificado (16.10.2026).** WildFly 36 arranca con esta configuración: Undertow escucha en `127.0.0.1:8090` y `/metrics` (gestión, 9990) responde 200. El único error es el despliegue antiguo `stackflow.war` (v1) en `deployments/`, que necesita `StackflowDS` (paso 0.3.3) y será sustituido por el WAR nuevo en 0.3.4.
