@@ -1,0 +1,27 @@
+# StackFlowServer v2 - WildFly 36: MariaDB driver + DataSources (step 0.3.3).
+#
+# Offline script (the server must be stopped). Credentials come from a LOCAL properties file
+# that git ignores (*.local.properties). Copy datasources.local.properties.example to
+# datasources.local.properties and fill it in. Run from the WildFly bin folder:
+#
+#   jboss-cli.bat --resolve-parameter-values ^
+#       --properties=<repo>\scripts\wildfly\datasources.local.properties ^
+#       --file=<repo>\scripts\wildfly\datasources.cli
+#
+# Idempotent: existing driver and data sources are left as they are.
+
+embed-server --server-config=standalone-microprofile.xml --std-out=echo
+
+if (outcome != success) of /subsystem=datasources/jdbc-driver=mariadb:read-resource
+    /subsystem=datasources/jdbc-driver=mariadb:add(driver-name=mariadb, driver-module-name=org.mariadb, driver-class-name=org.mariadb.jdbc.Driver, driver-xa-datasource-class-name=org.mariadb.jdbc.MariaDbDataSource)
+end-if
+
+if (outcome != success) of /subsystem=datasources/data-source=StackflowDS:read-resource
+    data-source add --name=StackflowDS --jndi-name=java:/jdbc/StackflowDS --driver-name=mariadb --connection-url=jdbc:mariadb://localhost:${stackflow.db.port}/stackflowdb --user-name=${stackflow.db.user} --password=${stackflow.db.password} --min-pool-size=2 --max-pool-size=20 --check-valid-connection-sql="SELECT 1" --background-validation=true --background-validation-millis=60000 --enabled=true
+end-if
+
+if (outcome != success) of /subsystem=datasources/data-source=StackflowTestDS:read-resource
+    data-source add --name=StackflowTestDS --jndi-name=java:/jdbc/StackflowTestDS --driver-name=mariadb --connection-url=jdbc:mariadb://localhost:${stackflow.db.port}/stackflowdb_test --user-name=${stackflow.db.user} --password=${stackflow.db.password} --min-pool-size=1 --max-pool-size=5 --check-valid-connection-sql="SELECT 1" --enabled=true
+end-if
+
+stop-embedded-server

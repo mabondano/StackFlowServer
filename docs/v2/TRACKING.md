@@ -118,7 +118,7 @@ Total: 68 milestones, 265 micropasos.
 |---|---|---|---|---|---|---|
 | 0.3.1 | Abrir stackflow (rama v2) en NetBeans como proyecto padre; nb-configuration.xml en host-wildfly con el hint… | 👤 | Terminado | 16.10.2026 | [0.3.1] | NetBeans: 5 módulos, Clean and Build OK |
 | 0.3.2 | Decidir la configuración del servidor (decidido: standalone-microprofile.xml, DA-004) y dejarla en HTTP 8090 con un script CLI. | 👤 | Terminado | 16.10.2026 | [0.3.2] | microprofile, HTTP 8090 (DA-004) |
-| 0.3.3 | DataSources StackflowDS y StackflowTestDS con un script CLI versionado. | 👤 | Pendiente |  |  |  |
+| 0.3.3 | DataSources StackflowDS y StackflowTestDS con un script CLI versionado. | 👤 | En proceso | 16.10.2026 |  | scripts listos; esperando credenciales del usuario |
 | 0.3.4 | Registrar WildFly 36 en NetBeans (standalone-microprofile.xml) y desplegar el WAR vacío desde NetBeans. | 👤 | Pendiente |  |  |  |
 | 0.3.5 | wildfly-maven-plugin + scripts/build.ps1 y scripts/deploy.ps1. |  | Pendiente |  |  |  |
 

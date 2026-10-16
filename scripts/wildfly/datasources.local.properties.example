@@ -1,0 +1,6 @@
+# Copy this file to "datasources.local.properties" (same folder) and fill in your values.
+# datasources.local.properties is ignored by git (*.local.properties) - never commit real passwords.
+
+stackflow.db.port=3307
+stackflow.db.user=stackflow
+stackflow.db.password=CHANGE_ME
